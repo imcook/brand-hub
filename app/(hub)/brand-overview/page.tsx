@@ -23,11 +23,63 @@ export default function BrandOverviewPage() {
         </div>
       </section>
 
-      {/* Our Story — placeholder */}
+      {/* Positioning */}
+      <section className="mb-12">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Positioning</h2>
+        <div className="space-y-4">
+          <div className="bg-sea-blue-dark rounded-2xl p-8">
+            <p className="text-[10px] uppercase tracking-widest font-body text-white/40 mb-2">What is Vouch?</p>
+            <p className="font-heading text-white text-3xl leading-snug">{brand.positioning.oneLiner}</p>
+          </div>
+          <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+            <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-2">What does Vouch do?</p>
+            <p className="font-body text-dark-neutral text-base leading-relaxed">{brand.positioning.whatWeDo}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Value Propositions */}
+      <section className="mb-12">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Value Propositions</h2>
+        <div className="space-y-4">
+          <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+            <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-4">Primary</p>
+            <ul className="space-y-3">
+              {brand.positioning.valuePropositions.primary.map((vp, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-sea-blue-mid/10 text-sea-blue-mid text-[10px] font-body font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                    {i + 1}
+                  </span>
+                  <p className="font-body text-sm text-dark-neutral leading-relaxed">{vp}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+            <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-4">Secondary</p>
+            <ul className="space-y-3">
+              {brand.positioning.valuePropositions.secondary.map((vp, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-sand-light text-dark-neutral/40 text-[10px] font-body font-semibold flex items-center justify-center shrink-0 mt-0.5 border border-black/5">
+                    {i + 1}
+                  </span>
+                  <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{vp}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-4">Our Story</h2>
+        <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm mb-4">
+          <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-3">Why we repositioned</p>
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{brand.positioning.whyWeRebranded}</p>
+        </div>
         <PlaceholderSection
-          title="Our Story"
+          title="Full Brand Story"
           description="The origin and journey of Vouch — why we were founded, what we've built, and where we're headed."
           contact="ian@vouchfor.com"
         />
@@ -74,14 +126,19 @@ export default function BrandOverviewPage() {
         </div>
       </section>
 
-      {/* Positioning Statement — placeholder */}
+      {/* Brand Personality */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Positioning Statement</h2>
-        <PlaceholderSection
-          title="Positioning Statement"
-          description="A concise articulation of how Vouch is positioned in the market — who we serve, what we offer, and why it matters."
-          contact="ian@vouchfor.com"
-        />
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Brand Personality</h2>
+        <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+          <div className="flex flex-wrap gap-2 mb-4">
+            {brand.brandPersonality.keywords.map((k) => (
+              <span key={k} className="px-4 py-2 rounded-full bg-sea-blue-mid/8 text-sea-blue-mid font-body font-medium text-sm">
+                {k}
+              </span>
+            ))}
+          </div>
+          <p className="font-body text-sm text-dark-neutral/60 leading-relaxed">{brand.brandPersonality.aesthetic}</p>
+        </div>
       </section>
     </div>
   );

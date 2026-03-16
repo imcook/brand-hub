@@ -1,5 +1,4 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { auth } from "@clerk/nextjs/server";
 import { brand } from "@/content/brand.config";
 
 const client = new Anthropic();
@@ -21,11 +20,6 @@ Tone: You are helpful, clear, and on-brand yourself. You speak with the same voi
 Always ground your answers in the brand guidelines above. If something isn't defined yet (many sections are still in draft), say so honestly and offer your best guidance based on what is defined.`;
 
 export async function POST(req: Request) {
-  const { userId } = await auth();
-  if (!userId) {
-    return new Response("Unauthorized", { status: 401 });
-  }
-
   const { messages } = await req.json();
 
   const stream = await client.messages.stream({

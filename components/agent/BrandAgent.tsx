@@ -90,14 +90,14 @@ export default function BrandAgent() {
         {isEmpty ? (
           /* Empty state — hero */
           <div className="flex flex-col items-center justify-center h-full px-6 pb-8">
-            <div className="w-14 h-14 rounded-2xl bg-sea-blue-mid flex items-center justify-center mb-6 shadow-md">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path d="M7 14h14M14 7v14" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                <circle cx="14" cy="14" r="12" stroke="white" strokeWidth="1.5" strokeOpacity="0.4"/>
-              </svg>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo/Vouch blue.svg"
+              alt="Vouch"
+              className="h-10 w-auto mb-8"
+            />
             <h1 className="font-heading text-3xl text-dark-neutral text-center mb-2">
-              Vouch Brand Agent
+              Brand Agent
             </h1>
             <p className="text-sea-blue-mid/70 text-center max-w-md text-sm leading-relaxed font-body">
               Your AI-powered assistant for everything Vouch — from guidelines to copy to asset discovery.

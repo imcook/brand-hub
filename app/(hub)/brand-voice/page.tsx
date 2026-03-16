@@ -43,10 +43,31 @@ export default function BrandVoicePage() {
 
       {/* Messaging Pillars — placeholder */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Messaging Pillars</h2>
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Messaging Pillars</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          {[
+            {
+              title: "All in one place",
+              body: "All communication materials needed for talent marketing — emails, videos, webpages, slides, and PDFs — in one workspace.",
+            },
+            {
+              title: "On-brand, automatically",
+              body: "Automated, personalised, and on-brand copy for all assets — email, text, website, and social media.",
+            },
+            {
+              title: "Everyone connected",
+              body: "Streamlined workflows that connect all stakeholders involved in talent marketing and acquisition.",
+            },
+          ].map((pillar) => (
+            <div key={pillar.title} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+              <h3 className="font-heading text-lg text-sea-blue-dark mb-2">{pillar.title}</h3>
+              <p className="font-body text-sm text-dark-neutral/60 leading-relaxed">{pillar.body}</p>
+            </div>
+          ))}
+        </div>
         <PlaceholderSection
-          title="Messaging Pillars"
-          description="The core themes and messages that anchor all Vouch communications — from product positioning to marketing campaigns."
+          title="Extended Messaging Framework"
+          description="Full messaging framework with proof points, objection handling, and audience-specific variants."
           contact="ian@vouchfor.com"
           badge="Draft"
         />

@@ -141,6 +141,38 @@ export default function TypographyPage() {
         </div>
       </section>
 
+      {/* Web Type Scale */}
+      <section className="mb-12">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Web Type Scale</h2>
+        <div className="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden">
+          <div className="grid grid-cols-4 border-b border-black/5">
+            {["Style", "Desktop", "Tablet", "Mobile"].map((h) => (
+              <div key={h} className="px-4 py-2.5 text-[10px] uppercase tracking-widest font-body font-semibold text-dark-neutral/30">
+                {h}
+              </div>
+            ))}
+          </div>
+          {[
+            { label: "Display", desktop: "112px / 7rem", tablet: "88px / 5.5rem", mobile: "64px / 4rem" },
+            { label: "H1", desktop: "80px / 5rem", tablet: "64px / 4rem", mobile: "48px / 3rem" },
+            { label: "H2", desktop: "64px / 4rem", tablet: "48px / 3rem", mobile: "40px / 2.5rem" },
+            { label: "H3", desktop: "48px / 3rem", tablet: "40px / 2.5rem", mobile: "36px / 2.25rem" },
+            { label: "H4", desktop: "32px / 2rem", tablet: "28px / 1.75rem", mobile: "—" },
+            { label: "H5", desktop: "24px / 1.5rem", tablet: "—", mobile: "—" },
+            { label: "H6 / Large", desktop: "20px / 1.25rem", tablet: "—", mobile: "—" },
+            { label: "Body", desktop: "16px / 1rem", tablet: "—", mobile: "—" },
+            { label: "Small", desktop: "14px / 0.875rem", tablet: "—", mobile: "—" },
+          ].map((row, i) => (
+            <div key={row.label} className={`grid grid-cols-4 ${i % 2 === 0 ? "" : "bg-sand-light/40"} divide-x divide-black/5`}>
+              <div className="px-4 py-3 text-xs font-body font-semibold text-dark-neutral">{row.label}</div>
+              <div className="px-4 py-3 text-xs font-mono text-dark-neutral/60">{row.desktop}</div>
+              <div className="px-4 py-3 text-xs font-mono text-dark-neutral/40">{row.tablet}</div>
+              <div className="px-4 py-3 text-xs font-mono text-dark-neutral/40">{row.mobile}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Google Alternatives */}
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-4">Google Alternatives</h2>

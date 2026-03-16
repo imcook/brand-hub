@@ -23,17 +23,19 @@ export default function ColoursPage() {
       {/* Main Palette */}
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-6">Main Palette</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {colours.main.map((c) => (
-            <ColourSwatch key={c.hex} {...c} size="large" />
-          ))}
+        <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {colours.main.map((c) => (
+              <ColourSwatch key={c.hex} {...c} size="large" />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Expanded Palette */}
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-6">Expanded Palette</h2>
-        <div className="space-y-6">
+        <div className="space-y-4">
           {expandedFamilies.map((family) => (
             <div key={family.label} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
               <h3 className="font-body font-semibold text-dark-neutral text-sm mb-4 uppercase tracking-widest text-dark-neutral/40">
@@ -52,10 +54,24 @@ export default function ColoursPage() {
       {/* Neutrals */}
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-6">Neutrals</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {colours.neutrals.map((c) => (
-            <ColourSwatch key={c.hex} {...c} size="large" />
-          ))}
+        <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {colours.neutrals.map((c) => (
+              <ColourSwatch key={c.hex} {...c} size="large" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sand Scale */}
+      <section className="mb-12">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Sand Scale</h2>
+        <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {colours.sand.map((c) => (
+              <ColourSwatch key={c.hex} {...c} size="medium" />
+            ))}
+          </div>
         </div>
       </section>
 

@@ -84,18 +84,20 @@ export default function ColourSwatch({
         className="h-20 w-full"
         style={{ backgroundColor: hex }}
       />
-      <div className="p-3">
-        <div className="font-body font-medium text-dark-neutral text-xs mb-1">{name}</div>
+      <div className="p-3 space-y-0.5">
+        <div className="font-body font-medium text-dark-neutral text-xs mb-1.5">{name}</div>
         <button
           onClick={copy}
           className="flex items-center justify-between w-full group"
         >
-          <span className="text-[11px] font-mono text-dark-neutral/50">{hex}</span>
+          <span className="text-[11px] font-mono text-dark-neutral/60">{hex}</span>
           <span className={`text-[10px] font-body px-1.5 py-0.5 rounded transition-all ${copied ? "bg-green-100 text-green-700" : "text-sea-blue-mid opacity-0 group-hover:opacity-100"}`}>
             {copied ? "✓" : "Copy"}
           </span>
         </button>
-        {pantone && <div className="text-[10px] text-dark-neutral/30 font-body mt-0.5">{pantone}</div>}
+        {rgb && <div className="text-[10px] text-dark-neutral/40 font-body">RGB ({rgb})</div>}
+        {cmyk && <div className="text-[10px] text-dark-neutral/40 font-body">CMYK {cmyk}</div>}
+        {pantone && <div className="text-[10px] text-dark-neutral/30 font-body">PMS {pantone}</div>}
       </div>
     </div>
   );

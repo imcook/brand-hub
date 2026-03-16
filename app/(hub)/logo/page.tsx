@@ -31,15 +31,13 @@ export default function LogoPage() {
 
             return (
               <div key={variant.name} className="bg-white rounded-2xl overflow-hidden border border-black/5 shadow-sm">
-                <div className={`${bgClass} h-36 flex items-center justify-center border-b border-black/5`}>
-                  {/* Logo placeholder until SVGs are in place */}
-                  <span
-                    className={`font-heading text-3xl font-bold tracking-tight ${
-                      variant.name === "White on Dark" ? "text-white" : "text-sea-blue-dark"
-                    }`}
-                  >
-                    vouch
-                  </span>
+                <div className={`${bgClass} h-36 flex items-center justify-center border-b border-black/5 px-10`}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={variant.file}
+                    alt={`Vouch wordmark — ${variant.name}`}
+                    className="h-10 w-auto"
+                  />
                 </div>
                 <div className="p-4">
                   <p className="font-body font-semibold text-dark-neutral text-sm mb-1">{variant.name}</p>
@@ -76,7 +74,8 @@ export default function LogoPage() {
               {/* Outer box showing clear space */}
               <div className="border-2 border-dashed border-sea-blue-mid/20 p-10 rounded">
                 <div className="px-8 py-4 border border-sea-blue-mid/10 rounded">
-                  <span className="font-heading text-4xl font-bold text-sea-blue-dark">vouch</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/assets/logo/Vouch blue.svg" alt="Vouch wordmark" className="h-10 w-auto" />
                 </div>
               </div>
               {/* Labels */}

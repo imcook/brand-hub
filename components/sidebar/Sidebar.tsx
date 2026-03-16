@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -78,10 +79,16 @@ export default function Sidebar() {
       {/* Logo */}
       <div className="px-4 py-5 border-b border-white/10">
         <Link href="/" className="block">
-          {/* Wordmark text fallback until SVG is in place */}
-          <span className="font-heading text-white text-xl tracking-tight font-bold">vouch</span>
+          <Image
+            src="/assets/logo/Vouch not white.svg"
+            alt="Vouch"
+            width={80}
+            height={28}
+            className="h-7 w-auto"
+            priority
+          />
         </Link>
-        <div className="flex items-center gap-1.5 mt-1">
+        <div className="flex items-center gap-1.5 mt-2">
           <span className="text-[10px] text-white/40 font-body uppercase tracking-widest">Brand Hub</span>
           <span className="text-[10px] bg-white/10 text-white/50 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest">V1</span>
         </div>
