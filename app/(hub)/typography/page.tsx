@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
+import PageNavigation from "@/components/ui/PageNavigation";
 import { brand } from "@/content/brand.config";
+
+export const metadata: Metadata = { title: "Typography — Vouch Brand Hub" };
 
 const scale = brand.typography.scale;
 
@@ -165,7 +169,7 @@ export default function TypographyPage() {
           ].map((row, i) => (
             <div key={row.label} className={`grid grid-cols-4 ${i % 2 === 0 ? "" : "bg-sand-light/40"} divide-x divide-black/5`}>
               <div className="px-4 py-3 text-xs font-body font-semibold text-dark-neutral">{row.label}</div>
-              <div className="px-4 py-3 text-xs font-mono text-dark-neutral/60">{row.desktop}</div>
+              <div className="px-4 py-3 text-xs font-mono text-dark-neutral/70">{row.desktop}</div>
               <div className="px-4 py-3 text-xs font-mono text-dark-neutral/40">{row.tablet}</div>
               <div className="px-4 py-3 text-xs font-mono text-dark-neutral/40">{row.mobile}</div>
             </div>
@@ -182,7 +186,7 @@ export default function TypographyPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white rounded-xl border border-black/5 p-5 shadow-sm">
             <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-1">Martina Plantijn alternative</p>
-            <p className="font-body font-semibold text-dark-neutral text-base">Lora</p>
+            <p className="font-body font-semibold text-dark-neutral text-base">Source Serif 4</p>
             <p className="text-xs text-dark-neutral/40 font-body mt-1">Available on Google Fonts — use for headings in documents</p>
           </div>
           <div className="bg-white rounded-xl border border-black/5 p-5 shadow-sm">
@@ -192,6 +196,8 @@ export default function TypographyPage() {
           </div>
         </div>
       </section>
+
+      <PageNavigation currentHref="/typography" />
     </div>
   );
 }

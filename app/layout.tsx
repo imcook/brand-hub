@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Vouch Brand Hub",
-  description: "The central source of truth for Vouch brand guidelines, assets, and AI Brand Agent.",
+  description: "The central source of truth for Vouch brand guidelines, assets, and Vouch Flow.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -13,10 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className="antialiased">{children}</body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className="antialiased">{children}</body>
+    </html>
   );
 }

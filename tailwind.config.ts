@@ -29,7 +29,7 @@ const config: Config = {
         "purple-dark": "#463880",
       },
       fontFamily: {
-        heading: ["MartinaPlantin", "Lora", "Georgia", "serif"],
+        heading: ["MartinaPlantin", "Source Serif 4", "Georgia", "serif"],
         body: ["Inter", "Roboto", "Arial", "sans-serif"],
       },
     },

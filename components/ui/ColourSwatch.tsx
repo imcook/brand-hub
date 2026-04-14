@@ -44,7 +44,7 @@ export default function ColourSwatch({
               onClick={copy}
               className="flex items-center justify-between w-full group"
             >
-              <span className="text-xs font-mono text-dark-neutral/60">{hex}</span>
+              <span className="text-xs font-mono text-dark-neutral/70">{hex}</span>
               <span className={`text-[10px] font-body px-2 py-0.5 rounded transition-all ${copied ? "bg-green-100 text-green-700" : "bg-sea-blue-mid/8 text-sea-blue-mid opacity-0 group-hover:opacity-100"}`}>
                 {copied ? "Copied!" : "Copy"}
               </span>
@@ -90,7 +90,7 @@ export default function ColourSwatch({
           onClick={copy}
           className="flex items-center justify-between w-full group"
         >
-          <span className="text-[11px] font-mono text-dark-neutral/60">{hex}</span>
+          <span className="text-[11px] font-mono text-dark-neutral/70">{hex}</span>
           <span className={`text-[10px] font-body px-1.5 py-0.5 rounded transition-all ${copied ? "bg-green-100 text-green-700" : "text-sea-blue-mid opacity-0 group-hover:opacity-100"}`}>
             {copied ? "✓" : "Copy"}
           </span>

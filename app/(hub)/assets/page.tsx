@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
+import PageNavigation from "@/components/ui/PageNavigation";
 import { brand } from "@/content/brand.config";
+
+export const metadata: Metadata = { title: "Packaged Assets — Vouch Brand Hub" };
 
 type AssetItem = {
   name: string;
@@ -23,35 +27,35 @@ const ASSET_ITEMS: AssetItem[] = [
     name: "Martina Plantijn Regular",
     type: "OTF",
     description: "Primary typeface — headings and display text",
-    file: brand.typography.primary.file,
+    file: "/assets/fonts/Martina Plantijn/OTF/MartinaPlantijn-Regular.otf",
     badge: "Font",
   },
   {
     name: "Martina Plantijn Bold",
     type: "OTF",
     description: "Primary typeface — bold weight",
-    file: "/assets/fonts/MartinaPlantin-Bold.otf",
+    file: "/assets/fonts/Martina Plantijn/OTF/MartinaPlantijn-Bold.otf",
     badge: "Font",
   },
   {
-    name: "Inter Regular",
+    name: "Martina Plantijn Medium",
     type: "OTF",
-    description: "Secondary typeface — body and UI text",
-    file: "/assets/fonts/Inter-Regular.otf",
+    description: "Primary typeface — medium weight",
+    file: "/assets/fonts/Martina Plantijn/OTF/MartinaPlantijn-Medium.otf",
     badge: "Font",
   },
   {
-    name: "Inter Medium",
-    type: "OTF",
-    description: "Secondary typeface — medium weight",
-    file: "/assets/fonts/Inter-Medium.otf",
+    name: "Inter Variable",
+    type: "TTF",
+    description: "Secondary typeface — variable font, all weights",
+    file: "/assets/fonts/Inter/TTF/Inter-VariableFont_opsz,wght.ttf",
     badge: "Font",
   },
   {
-    name: "Inter SemiBold",
-    type: "OTF",
-    description: "Secondary typeface — semibold weight",
-    file: "/assets/fonts/Inter-SemiBold.otf",
+    name: "Inter Variable Italic",
+    type: "TTF",
+    description: "Secondary typeface — variable italic",
+    file: "/assets/fonts/Inter/TTF/Inter-Italic-VariableFont_opsz,wght.ttf",
     badge: "Font",
   },
 ];
@@ -64,6 +68,7 @@ const BADGE_COLOURS: Record<string, string> = {
 const TYPE_COLOURS: Record<string, string> = {
   SVG: "bg-purple-light/20 text-purple-dark",
   OTF: "bg-sun-light text-sun-dark",
+  TTF: "bg-sun-light text-sun-dark",
 };
 
 export default function AssetsPage() {
@@ -108,7 +113,7 @@ export default function AssetsPage() {
       </div>
 
       <div className="mt-8 bg-sand-light rounded-xl border border-sea-blue-mid/10 px-6 py-5">
-        <p className="text-sm font-body text-dark-neutral/60">
+        <p className="text-sm font-body text-dark-neutral/70">
           <span className="font-semibold text-dark-neutral">Need something else?</span>{" "}
           Contact{" "}
           <a href="mailto:ian@vouchfor.com" className="text-sea-blue-mid hover:underline">
@@ -117,6 +122,8 @@ export default function AssetsPage() {
           — Creative Lead — for custom file formats, higher resolution assets, or anything not listed here.
         </p>
       </div>
+
+      <PageNavigation currentHref="/assets" />
     </div>
   );
 }

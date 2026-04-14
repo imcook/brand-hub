@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
+
+export const metadata: Metadata = { title: "Brand Overview — Vouch Brand Hub" };
 import PlaceholderSection from "@/components/ui/PlaceholderSection";
+import PageNavigation from "@/components/ui/PageNavigation";
 import { brand } from "@/content/brand.config";
 
 export default function BrandOverviewPage() {
+  const { visualIdentity } = brand;
+
   return (
     <div className="px-10 py-10 max-w-5xl">
       <PageHeader
@@ -28,7 +34,7 @@ export default function BrandOverviewPage() {
         <h2 className="font-heading text-2xl text-dark-neutral mb-6">Positioning</h2>
         <div className="space-y-4">
           <div className="bg-sea-blue-dark rounded-2xl p-8">
-            <p className="text-[10px] uppercase tracking-widest font-body text-white/40 mb-2">What is Vouch?</p>
+            <p className="text-[10px] uppercase tracking-widest font-body text-white/50 mb-2">What is Vouch?</p>
             <p className="font-heading text-white text-3xl leading-snug">{brand.positioning.oneLiner}</p>
           </div>
           <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
@@ -107,7 +113,7 @@ export default function BrandOverviewPage() {
                 </div>
                 <h3 className="font-heading text-xl text-dark-neutral">{value.name}</h3>
               </div>
-              <p className="font-body text-sm text-dark-neutral/60 leading-relaxed">{value.description}</p>
+              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{value.description}</p>
             </div>
           ))}
         </div>
@@ -120,9 +126,29 @@ export default function BrandOverviewPage() {
           {brand.experiencePrinciples.map((p) => (
             <div key={p.name} className="bg-sand-light rounded-2xl border border-sea-blue-mid/10 p-6">
               <h3 className="font-heading text-xl text-sea-blue-dark mb-2">{p.name}</h3>
-              <p className="font-body text-sm text-dark-neutral/60 leading-relaxed">{p.description}</p>
+              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{p.description}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Visual Identity */}
+      <section className="mb-12">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Visual Identity</h2>
+        <div className="bg-sea-blue-dark rounded-2xl p-8 mb-4">
+          <p className="font-heading text-white text-xl leading-snug max-w-2xl">
+            {visualIdentity.summary}
+          </p>
+        </div>
+        <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+          <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-4">Design vocabulary</p>
+          <div className="flex flex-wrap gap-2">
+            {visualIdentity.keywords.map((word) => (
+              <span key={word} className="px-3 py-1.5 rounded-full bg-sand-light border border-black/8 text-dark-neutral/70 font-body text-sm">
+                {word}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -137,9 +163,11 @@ export default function BrandOverviewPage() {
               </span>
             ))}
           </div>
-          <p className="font-body text-sm text-dark-neutral/60 leading-relaxed">{brand.brandPersonality.aesthetic}</p>
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{brand.brandPersonality.aesthetic}</p>
         </div>
       </section>
+
+      <PageNavigation currentHref="/brand-overview" />
     </div>
   );
 }

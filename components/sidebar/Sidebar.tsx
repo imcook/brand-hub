@@ -3,8 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
+
+function sectionIcon(src: string, alt: string) {
+  return function Icon({ className }: { className?: string }) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={alt} className="w-5 h-5 rounded-md shrink-0 object-contain" />;
+  };
+}
 
 const NAV = [
   {
@@ -14,49 +21,33 @@ const NAV = [
   {
     label: "ASSETS",
     items: [
-      { label: "Logo", href: "/logo", icon: LogoIcon },
-      { label: "Colours & Gradients", href: "/colours", icon: ColourIcon },
-      { label: "Typography", href: "/typography", icon: TypographyIcon },
-      { label: "Visual Graphics", href: "/visual-graphics", icon: GraphicsIcon },
-      { label: "Iconography", href: "/iconography", icon: IconographyIcon },
-      { label: "Photography", href: "/photography", icon: PhotographyIcon },
+      { label: "Logo", href: "/logo", icon: sectionIcon("/assets/section-icons/logo.svg", "Logo") },
+      { label: "Colours", href: "/colours", icon: sectionIcon("/assets/section-icons/colour-palette.svg", "Colours") },
+      { label: "Typography", href: "/typography", icon: sectionIcon("/assets/section-icons/typography.svg", "Typography") },
+      { label: "Visual Language", href: "/visual-graphics", icon: sectionIcon("/assets/section-icons/visual-graphics.svg", "Visual Language") },
+      { label: "Iconography", href: "/iconography", icon: sectionIcon("/assets/section-icons/iconography.svg", "Iconography") },
+      { label: "Photography", href: "/photography", icon: sectionIcon("/assets/section-icons/photography.svg", "Photography") },
     ],
   },
   {
     label: "BRAND STRATEGY",
     items: [
-      { label: "Brand Overview", href: "/brand-overview", icon: OverviewIcon },
-      { label: "Brand Voice & Messaging", href: "/brand-voice", icon: VoiceIcon },
+      { label: "Brand Overview", href: "/brand-overview", icon: sectionIcon("/assets/section-icons/brand-overview.svg", "Brand Overview") },
+      { label: "Brand Voice & Messaging", href: "/brand-voice", icon: sectionIcon("/assets/section-icons/voice-messaging.svg", "Voice & Messaging") },
     ],
   },
   {
     label: "FUNCTIONAL",
     items: [
-      { label: "Brand Application", href: "/brand-application", icon: ApplicationIcon },
-      { label: "Packaged Assets", href: "/assets", icon: PackageIcon },
+      { label: "Brand Application", href: "/brand-application", icon: sectionIcon("/assets/section-icons/brand-application.svg", "Brand Application") },
+      { label: "Packaged Assets", href: "/assets", icon: sectionIcon("/assets/section-icons/packaged-assets.svg", "Packaged Assets") },
     ],
   },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const [darkMode, setDarkMode] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("vouchDarkMode");
-    if (stored === "true") {
-      setDarkMode(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const toggleDark = () => {
-    const next = !darkMode;
-    setDarkMode(next);
-    localStorage.setItem("vouchDarkMode", String(next));
-    document.documentElement.classList.toggle("dark", next);
-  };
 
   if (collapsed) {
     return (
@@ -89,8 +80,7 @@ export default function Sidebar() {
           />
         </Link>
         <div className="flex items-center gap-1.5 mt-2">
-          <span className="text-[10px] text-white/40 font-body uppercase tracking-widest">Brand Hub</span>
-          <span className="text-[10px] bg-white/10 text-white/50 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest">V1</span>
+          <span className="text-[10px] text-white/50 font-body leading-snug">The single source of truth for the Vouch brand.</span>
         </div>
       </div>
 
@@ -99,7 +89,7 @@ export default function Sidebar() {
         {NAV.map((section, si) => (
           <div key={si}>
             {section.label && (
-              <p className="px-2 mb-1 text-[10px] font-body uppercase tracking-widest text-white/30 font-medium">
+              <p className="px-2 mb-1 text-[10px] font-body uppercase tracking-widest text-white/50 font-medium">
                 {section.label}
               </p>
             )}
@@ -116,7 +106,7 @@ export default function Sidebar() {
                           : "text-white/60 hover:text-white hover:bg-white/5"
                       }`}
                     >
-                      <item.icon className="w-4 h-4 shrink-0" />
+                      <item.icon className="w-4 h-4 shrink-0" aria-hidden="true" />
                       <span className="truncate">{item.label}</span>
                     </Link>
                   </li>
@@ -136,14 +126,7 @@ export default function Sidebar() {
           <FeedbackIcon className="w-4 h-4" />
           <span>Share Feedback</span>
         </a>
-        <button
-          onClick={toggleDark}
-          className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all font-body"
-        >
-          {darkMode ? <SunIcon className="w-4 h-4" /> : <MoonIcon className="w-4 h-4" />}
-          <span>{darkMode ? "Light Mode" : "Dark Mode"}</span>
-        </button>
-        <button
+<button
           onClick={() => setCollapsed(true)}
           className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all font-body"
         >

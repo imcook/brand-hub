@@ -95,7 +95,7 @@ export const brand = {
       role: "Headings, key messaging, display text",
       weights: ["Regular", "Bold"],
       file: "/assets/fonts/Martina Plantijn/WOFF2/martina-plantijn-regular.woff2",
-      googleFallback: "Lora",
+      googleFallback: "Source Serif 4",
       systemFallback: "Georgia, serif",
     },
     secondary: {
@@ -157,9 +157,9 @@ export const brand = {
     clearSpace: "Minimum clear space = logo height on all four sides",
     variants: [
       {
-        name: "Blue on Cream",
+        name: "Blue on Sand",
         file: "/assets/logo/Vouch blue.svg",
-        usage: "Primary — use on light/cream backgrounds",
+        usage: "Primary — use on light/sand backgrounds",
       },
       {
         name: "White on Dark",
@@ -203,6 +203,11 @@ export const brand = {
   brandPersonality: {
     keywords: ["Calm", "Clear", "Modern", "Human"],
     aesthetic: "A sense of ease — low-contrast, open, a nice place to be. Paper-like neutral backgrounds, serif font — rounded, confident, not stuffy. More Kindle, less iPad: focused, warm, non-distracting.",
+  },
+
+  visualIdentity: {
+    summary: "Vouch is designed to feel like the antithesis of a typical SaaS platform. The visual identity is calm, clear, modern, and human — deliberately decaffeinated in a world that's permanently turned up to eleven. Less digital, more editorial. Think paper-like backgrounds, subtle film grain, a serif that's confident without being formal, low contrast, generous space. Texture and tactility are key differentiators — where most SaaS feels glaring and clinical, Vouch feels grounded and real. A workspace that feels weightless and frictionless — somewhere you actually want to be. More Kindle, less iPad. The goal is something tangible and human that happens to be software — effortless, flexible, and quietly powerful.",
+    keywords: ["flow", "context", "decaffeinated", "frictionless", "alignment", "flexible", "weightless", "content", "space", "hub", "collaboration", "nexus", "speed", "assets", "human", "effortless", "magic", "sync", "texture", "tactility", "grain", "editorial"],
   },
 
   voice: {
