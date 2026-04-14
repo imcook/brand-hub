@@ -7,7 +7,7 @@ import { useState } from "react";
 
 
 function sectionIcon(src: string, alt: string) {
-  return function Icon({ className }: { className?: string }) {
+  return function Icon() {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={src} alt={alt} className="w-5 h-5 rounded-md shrink-0 object-contain" />;
   };
@@ -149,89 +149,7 @@ function HomeIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-function LogoIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <rect x="2" y="4" width="12" height="8" rx="1" stroke="currentColor" strokeWidth="1.2"/>
-      <path d="M5 8h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-    </svg>
-  );
-}
-function ColourIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.2"/>
-      <circle cx="5.5" cy="6.5" r="1.5" fill="currentColor"/>
-      <circle cx="10.5" cy="6.5" r="1.5" fill="currentColor"/>
-      <circle cx="8" cy="10.5" r="1.5" fill="currentColor"/>
-    </svg>
-  );
-}
-function TypographyIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <path d="M3 3h10v2H3zM8 5v8M5 13h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-function GraphicsIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.2"/>
-      <path d="M2 10l4-4 3 3 2-2 3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-function IconographyIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-function PhotographyIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <rect x="1" y="4" width="14" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
-      <circle cx="8" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.2"/>
-      <path d="M5.5 4L6.5 2h3l1 2" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-function OverviewIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <path d="M2 4h12M2 8h8M2 12h10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-    </svg>
-  );
-}
-function VoiceIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <path d="M8 1v6M5 2.5v3M11 2.5v3M3 5v2M13 5v2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-      <path d="M2 9c2 3 10 3 12 0" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-      <path d="M8 12v3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-    </svg>
-  );
-}
-function ApplicationIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.2"/>
-      <rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.2"/>
-      <rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.2"/>
-      <rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.2"/>
-    </svg>
-  );
-}
-function PackageIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <path d="M8 1L14 4v8l-6 3L2 12V4l6-3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
-      <path d="M8 1v14M2 4l6 3 6-3" stroke="currentColor" strokeWidth="1.2"/>
-    </svg>
-  );
-}
+
 function FeedbackIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none">
@@ -239,21 +157,7 @@ function FeedbackIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-function MoonIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <path d="M13 9A6 6 0 017 3a6 6 0 100 10 6 6 0 006-4z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-function SunIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="3" stroke="currentColor" strokeWidth="1.2"/>
-      <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M3.2 12.8l1.4-1.4M11.4 4.6l1.4-1.4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-    </svg>
-  );
-}
+
 function CollapseIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none">

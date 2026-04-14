@@ -188,7 +188,7 @@ export default function BrandVoicePage() {
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-3">Example Scenarios</h2>
         <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-6 max-w-2xl">
-          The same idea, written two ways. The off-brand version isn't always obviously wrong — that's the point.
+          The same idea, written two ways. The off-brand version isn&apos;t always obviously wrong — that&apos;s the point.
         </p>
         <div className="space-y-4">
           {[

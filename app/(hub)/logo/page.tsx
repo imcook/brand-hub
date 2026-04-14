@@ -17,7 +17,7 @@ export default function LogoPage() {
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-4">Our Logo</h2>
         <p className="font-body text-sm text-dark-neutral/70 max-w-2xl leading-relaxed">
-          {brand.logo.description} The logo appears as a wordmark only — there is no standalone icon. The clear space rule is simple: maintain a minimum margin equal to the height of the 'h' in the wordmark on all four sides.
+          {brand.logo.description} The logo appears as a wordmark only — there is no standalone icon. The clear space rule is simple: maintain a minimum margin equal to the height of the &apos;h&apos; in the wordmark on all four sides.
         </p>
       </section>
 
@@ -73,7 +73,7 @@ export default function LogoPage() {
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-4">Clear Space</h2>
         <p className="font-body text-sm text-dark-neutral/70 mb-6 max-w-2xl leading-relaxed">
-          Maintain a minimum clear space equal to the height of the 'h' in the wordmark on all four sides. This ensures the logo always has room to breathe and is clear to read.
+          Maintain a minimum clear space equal to the height of the &apos;h&apos; in the wordmark on all four sides. This ensures the logo always has room to breathe and is clear to read.
         </p>
         <div className="bg-white rounded-2xl border border-black/5 p-12 shadow-sm flex items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
