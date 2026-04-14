@@ -418,7 +418,7 @@ export default function BrandAgent() {
 
           {/* Copy */}
           <p className="font-body text-sm text-dark-neutral/40 text-center max-w-md mb-8 leading-relaxed text-balance">
-            Flow knows the Vouch brand inside out. Ask about colours, copy guidelines, assets — or get feedback on something you&apos;re writing.
+            <span className="font-semibold text-dark-neutral/70">Flow</span> knows the Vouch brand inside out. Ask about colours, copy guidelines, assets — or get feedback on something you&apos;re writing.
           </p>
 
           {/* Input */}
