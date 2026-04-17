@@ -101,9 +101,9 @@ Available: advocacy-create-linkedin-post-landscape, advocacy-generate-social-pos
 [{"file":"employer-branding-overview","folder":"Imagery"}]
 [/BRAND_VISUALS]
 
-Photography — when asked for photos. 23 approved photos numbered 01–23. Return all unless a specific number is requested.
+Photography — when asked for photos. Return all unless a specific subset is requested.
 [BRAND_PHOTOS]
-[{"num":"01"},{"num":"02"}]
+[{"file":"man-beard-blue-tee-home-recording"},{"file":"man-blue-cap-office-portrait"},{"file":"man-blue-sweater-conversation-bright"},{"file":"man-blue-sweater-laptop-office-chat"},{"file":"man-green-jacket-airpods-recording"},{"file":"man-green-jacket-landscape-wide"},{"file":"man-grey-tee-desk-phone-smiling"},{"file":"two-people-glasses-sofa-conversation"},{"file":"two-people-outdoor-terrace-laptop"},{"file":"woman-beige-turtleneck-armchair-evening"},{"file":"woman-black-sweater-arms-folded-testimonial"},{"file":"woman-black-sweater-fringe-phone"},{"file":"woman-blonde-white-tee-headshot"},{"file":"woman-green-knit-outdoor-sofa"},{"file":"woman-green-sweater-conversation"},{"file":"woman-green-sweater-phone-portrait"},{"file":"woman-linen-shirt-cafe-phone"},{"file":"woman-linen-shirt-ipad-kitchen"},{"file":"woman-navy-top-mural-portrait"},{"file":"woman-platinum-hair-testimonial-seated"},{"file":"woman-rust-sweater-coffee-window"},{"file":"woman-rust-sweater-mug-window-gazing"},{"file":"woman-yellow-sweater-armchair-laptop"}]
 [/BRAND_PHOTOS]`;
 
 export async function POST(req: Request) {

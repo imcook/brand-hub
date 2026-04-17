@@ -45,7 +45,7 @@ type VisualItem = {
 };
 
 type PhotoItem = {
-  num: string;
+  file: string;
 };
 
 type Segment =
@@ -243,17 +243,18 @@ function MessageContent({ content }: { content: string }) {
           return (
             <div key={i} className="grid grid-cols-3 gap-3">
               {seg.items.map((item) => {
-                const webp = `/assets/Photos/WebP/${item.num}.webp`;
-                const png = `/assets/Photos/PNG/${item.num}.png`;
+                const webp = `/assets/Photos/WebP/${item.file}.webp`;
+                const png = `/assets/Photos/PNG/${item.file}.png`;
+                const label = item.file.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
                 return (
-                  <div key={item.num} className="group relative rounded-xl overflow-hidden bg-sea-blue-dark" style={{ aspectRatio: "4/3" }}>
+                  <div key={item.file} className="group relative rounded-xl overflow-hidden bg-sea-blue-dark" style={{ aspectRatio: "4/3" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={webp} alt={`Photo ${item.num}`} className="w-full h-full object-cover" />
+                    <img src={webp} alt={label} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-sea-blue-dark/70 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-3">
-                      <span className="text-[10px] text-white/70 font-body">Photo {item.num}</span>
+                      <span className="text-[10px] text-white/70 font-body">{label}</span>
                       <div className="flex gap-2 justify-end">
-                        <a href={webp} download={`vouch-photo-${item.num}.webp`} className="px-2.5 py-1 rounded-lg bg-white/20 text-white text-[11px] font-body hover:bg-white/35 transition-colors">WebP</a>
-                        <a href={png} download={`vouch-photo-${item.num}.png`} className="px-2.5 py-1 rounded-lg bg-white/20 text-white text-[11px] font-body hover:bg-white/35 transition-colors">PNG</a>
+                        <a href={webp} download={`${item.file}.webp`} className="px-2.5 py-1 rounded-lg bg-white/20 text-white text-[11px] font-body hover:bg-white/35 transition-colors">WebP</a>
+                        <a href={png} download={`${item.file}.png`} className="px-2.5 py-1 rounded-lg bg-white/20 text-white text-[11px] font-body hover:bg-white/35 transition-colors">PNG</a>
                       </div>
                     </div>
                   </div>
