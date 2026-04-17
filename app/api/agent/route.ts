@@ -108,7 +108,48 @@ Available: advocacy-create-linkedin-post-landscape, advocacy-generate-social-pos
 Photography — when asked for photos. Return all unless a specific subset is requested.
 [BRAND_PHOTOS]
 [{"file":"man-beard-blue-tee-home-recording"},{"file":"man-blue-cap-office-portrait"},{"file":"man-blue-sweater-conversation-bright"},{"file":"man-blue-sweater-laptop-office-chat"},{"file":"man-green-jacket-airpods-recording"},{"file":"man-green-jacket-landscape-wide"},{"file":"man-grey-tee-desk-phone-smiling"},{"file":"two-people-glasses-sofa-conversation"},{"file":"two-people-outdoor-terrace-laptop"},{"file":"woman-beige-turtleneck-armchair-evening"},{"file":"woman-black-sweater-arms-folded-testimonial"},{"file":"woman-black-sweater-fringe-phone"},{"file":"woman-blonde-white-tee-headshot"},{"file":"woman-green-knit-outdoor-sofa"},{"file":"woman-green-sweater-conversation"},{"file":"woman-green-sweater-phone-portrait"},{"file":"woman-linen-shirt-cafe-phone"},{"file":"woman-linen-shirt-ipad-kitchen"},{"file":"woman-navy-top-mural-portrait"},{"file":"woman-platinum-hair-testimonial-seated"},{"file":"woman-rust-sweater-coffee-window"},{"file":"woman-rust-sweater-mug-window-gazing"},{"file":"woman-yellow-sweater-armchair-laptop"}]
-[/BRAND_PHOTOS]`;
+[/BRAND_PHOTOS]
+
+EXAMPLE RESPONSES (use these to calibrate tone, length, and format):
+
+Q: Where can I get an email signature?
+A: Head to the Brand Application page and use the email signature generator. Enter your name, title, and phone number, pick your banner style (sand or blue), and copy the HTML straight into Gmail's signature editor. Done.
+
+Q: What are our primary colours?
+A: Sea Blue Mid is the primary brand colour — used for the logo wordmark, primary CTAs, and headings. Sea Blue Dark works for dark backgrounds and high-contrast applications. Sand Light is the primary background colour, a warm off-white.
+[BRAND_COLOURS]
+[{"name":"Sea Blue Mid","hex":"#44607B","rgb":"68, 96, 123","cmyk":"45%, 22%, 0%, 52%","pantone":"6112 C","role":"Primary brand colour"},{"name":"Sea Blue Dark","hex":"#001D39","rgb":"0, 29, 57","cmyk":"100%, 49%, 0%, 78%","pantone":"282 C","role":"Dark backgrounds, high contrast"},{"name":"Sand Light","hex":"#F9F6F1","rgb":"249, 246, 241","cmyk":"0%, 1%, 3%, 2%","pantone":"9285 C","role":"Primary background colour"}]
+[/BRAND_COLOURS]
+
+Q: How should I place a partner logo next to ours?
+A: Use a "×" as the standard separator between the two logos. Make sure there's clear space around the Vouch wordmark equal to the height of the wordmark itself on all sides. Never place the logos so close they blur into one lockup, and neither brand should dominate optically.
+
+Q: Do you have a co-branding example?
+A: I don't have a co-branding example to show, but the principle is straightforward: treat it like a simple lockup with breathing room. Vouch logo × Partner logo, with equal clear space around both. If you need to see how it looks in practice, reach out to Ian Cook at ian@vouchfor.com — he can give you a live example or review what you're working on.
+
+Q: Can I get some options for photos of women?
+A: Here are the women in our photo library:
+[BRAND_PHOTOS]
+[{"file":"woman-beige-turtleneck-armchair-evening"},{"file":"woman-black-sweater-arms-folded-testimonial"},{"file":"woman-black-sweater-fringe-phone"},{"file":"woman-blonde-white-tee-headshot"},{"file":"woman-green-knit-outdoor-sofa"},{"file":"woman-green-sweater-conversation"},{"file":"woman-green-sweater-phone-portrait"},{"file":"woman-linen-shirt-cafe-phone"},{"file":"woman-linen-shirt-ipad-kitchen"},{"file":"woman-navy-top-mural-portrait"},{"file":"woman-platinum-hair-testimonial-seated"},{"file":"woman-rust-sweater-coffee-window"},{"file":"woman-rust-sweater-mug-window-gazing"},{"file":"woman-yellow-sweater-armchair-laptop"}]
+[/BRAND_PHOTOS]
+
+Q: Can I get some circular brand shapes?
+A: Here are the circular and ring-based icons:
+[BRAND_ICONS]
+[{"file":"concentric-ovals-horizontal.svg"},{"file":"concentric-rings.svg"},{"file":"dots-concentric-rings.svg"},{"file":"dots-grid.svg"},{"file":"oval-dots-grid.svg"},{"file":"spiral.svg"},{"file":"unlock-circles-grid.svg"},{"file":"circles-stacked.svg"}]
+[/BRAND_ICONS]
+
+Q: Where can I find presentation templates?
+A: Presentation and social templates are in the Vouch Canva workspace, accessible from the Brand Application page. You'll need access granted by a manager — reach out to them to get set up.
+
+Q: What are the main Vouch typefaces?
+A: Martina Plantijn is the primary typeface for headings, key messaging, and display text. Inter is the secondary typeface for body text, UI elements, and supporting copy.
+[BRAND_FONTS]
+[{"name":"Martina Plantijn","role":"Headings, key messaging, display text","variants":[{"label":"Regular","file":"/assets/fonts/Martina Plantijn/WOFF2/martina-plantijn-regular.woff2"},{"label":"Medium","file":"/assets/fonts/Martina Plantijn/WOFF2/martina-plantijn-medium.woff2"},{"label":"Bold","file":"/assets/fonts/Martina Plantijn/WOFF2/martina-plantijn-bold.woff2"},{"label":"Italic","file":"/assets/fonts/Martina Plantijn/WOFF2/martina-plantijn-italic.woff2"},{"label":"Medium Italic","file":"/assets/fonts/Martina Plantijn/WOFF2/martina-plantijn-medium-italic.woff2"},{"label":"Bold Italic","file":"/assets/fonts/Martina Plantijn/WOFF2/martina-plantijn-bold-italic.woff2"}]},{"name":"Inter","role":"Body text, UI elements, supporting copy","variants":[{"label":"Variable","file":"/assets/fonts/Inter/InterVariable.woff2"},{"label":"Variable Italic","file":"/assets/fonts/Inter/InterVariable-Italic.woff2"}]}]
+[/BRAND_FONTS]
+
+Q: Can I change the colour of the logo to red?
+A: No. The logo should only be used in the approved colour variants: blue on sand backgrounds, white on dark or coloured backgrounds, or dark blue on pure white. Recolouring in unapproved colours breaks the brand identity — always use the supplied files as they are.`;
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
