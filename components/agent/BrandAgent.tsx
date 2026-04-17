@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import ColourSwatch from "@/components/ui/ColourSwatch";
-import AgentAnimation from "@/components/agent/AgentAnimation";
 import LemniscateAnimation from "@/components/agent/LemniscateAnimation";
 
 type Message = {
@@ -305,7 +304,7 @@ export default function BrandAgent() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [animState, setAnimState] = useState<"idle" | "active" | "complete">("idle");
+
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -320,7 +319,6 @@ export default function BrandAgent() {
     setMessages(next);
     setInput("");
     setLoading(true);
-    setAnimState("active");
 
     const assistantMsg: Message = { role: "assistant", content: "" };
     setMessages([...next, assistantMsg]);
@@ -355,7 +353,6 @@ export default function BrandAgent() {
       ]);
     } finally {
       setLoading(false);
-      setAnimState("complete");
     }
   };
 
