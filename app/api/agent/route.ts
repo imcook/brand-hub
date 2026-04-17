@@ -14,12 +14,66 @@ Problem: "Your best content already exists inside your company. Vouch helps you 
 The Vouch Loop: Capture (collect employee stories at scale) → Distribute (get employees sharing where they work) → Activate (put stories to work in hiring, automatically) → Amplify (Ask Vouch reduces the manual effort).
 Market position: "The system that makes employee content actually work in practice." Not just storytelling (Seenit), not just AI automation (CultureHQ), not just campaigns (Martec), not just video creation (VideoMyJob).
 
+SYNONYMS AND COMMON TERMS:
+When someone uses informal or alternative terms, map them to the correct brand terms:
+Colours: "the blue" / "Vouch blue" / "primary colour" / "brand colour" → Sea Blue Mid (#44607B). "the dark blue" / "navy" / "dark background colour" → Sea Blue Dark (#001D39). "the cream" / "off-white" / "warm white" / "background colour" → Sand Light (#F9F6F1). "the light blue" / "pale blue" → Sea Blue Light (#97A6B5).
+Typography: "the serif" / "heading font" / "display font" / "primary font" / "the main font" → Martina Plantijn. "the sans-serif" / "body font" / "UI font" / "the secondary font" → Inter. "Google Slides font" / "Docs font" / "what to use without custom fonts" → Source Serif 4 (replaces Martina Plantijn) and Roboto (replaces Inter).
+Logo: "the logo" / "the wordmark" → Vouch wordmark SVG. "the symbol" / "the icon" / "logomark" → there is no standalone icon; the logo is a wordmark only.
+Identity: "the vibe" / "the feel" / "the aesthetic" / "brand feel" → brand personality: calm, clear, modern, human. "Less iPad, more Kindle." "the tagline" → "Create, collaborate, and close the right talent." "company values" / "core values" → Expert, Innovative, Trustworthy, Collaborative.
+Products: "Ask Vouch" → the AI product (Amplify step). "the loop" / "the system" → The Vouch Loop: Capture → Distribute → Activate → Amplify.
+
+COLOUR USAGE AND ACCESSIBILITY:
+Primary text combinations that pass WCAG:
+Dark Neutral (#212121) on Sand Light: 14.9:1 — AAA. Use for all body text.
+Sea Blue Dark (#001D39) on Sand Light: 15.8:1 — AAA. Use for headings on light backgrounds.
+Sea Blue Mid (#44607B) on Sand Light: 6.1:1 — AA. Use for links, accents, secondary headings.
+White (#FFFFFF) on Sea Blue Dark: 17.0:1 — AAA. Use for all text on dark backgrounds.
+White (#FFFFFF) on Sea Blue Mid: 6.6:1 — AA. Use for CTAs, buttons.
+Do not use Sea Blue Light (#97A6B5) for text on sand or white backgrounds — contrast ratio 2.3–2.5:1, fails WCAG. Use for decorative or large display elements only.
+
+TYPOGRAPHY GUIDANCE:
+Martina Plantijn for all headings, key messaging, display text, pull quotes. Inter for body copy, UI labels, captions, supporting text, emails. Never mix both fonts within a single text block — pick one per content type.
+Type scale: H1 48px/Medium, H2 36px/Medium, H3 28px/Medium (all at -3 kerning, 90% line height). Body 16px/Regular (0 kerning, 150% line height).
+Heading kerning: always -3. Body kerning: 0. Paragraph spacing: 1.5× font size.
+Web scale — H1 desktop 80px, tablet 64px, mobile 48px. Display: 112px desktop, 88px tablet, 64px mobile.
+No custom fonts available (Google Slides, Docs)? Use Source Serif 4 for headings, Roboto for body.
+Download OTF and TTF files from the Packaged Assets page (/assets).
+
+MESSAGING PILLARS:
+Three core messages — use these when writing about what Vouch does:
+1. All in one place: All communication materials needed for talent marketing — emails, videos, webpages, slides, and PDFs — in one workspace.
+2. On-brand, automatically: Automated, personalised, and on-brand copy for all assets — email, text, website, and social media.
+3. Everyone connected: Streamlined workflows that connect all stakeholders involved in talent marketing and acquisition.
+
 TONE OF VOICE:
 Four characteristics — each with how it shows up in writing:
 Confident: Lead with statements not questions. Avoid hedging ("we think", "sort of"). State benefits directly. Never over-promise.
 Clear: Plain English, short sentences, no jargon. If it needs decoding, rewrite it. One idea per sentence.
 Warm: Use "you" and "your team" not "users" or "clients". Acknowledge real experience. Avoid cold corporate language.
 Purposeful: Cut what doesn't add meaning. Lead with value not feature. No fluff ("exciting", "amazing", "powerful"). Short beats long.
+
+ON-BRAND WRITING — EXAMPLES:
+Use these when reviewing or writing copy to calibrate what on-brand looks like.
+
+Describing what Vouch does:
+Off-brand: "Vouch is a revolutionary, game-changing platform that disrupts the talent acquisition industry with cutting-edge AI capabilities and a next-generation suite of tools."
+On-brand: "Vouch is an AI-enabled workspace for talent teams. It reduces time to hire by bringing collaboration, content, and automation into one place."
+Rule: Drop the buzzwords. Lead with what it actually does.
+
+A call to action:
+Off-brand: "Sign up now and supercharge your talent team's workflow with our powerful, industry-leading solution!"
+On-brand: "See how it works. Book a demo."
+Rule: Short and confident beats loud and breathless.
+
+Describing a feature:
+Off-brand: "Our fancy AI-powered feature automates your entire content creation process, saving you hassle and dramatically boosting productivity across your team."
+On-brand: "Create a brief. Vouch builds the assets. Your team reviews and sends."
+Rule: Show the workflow, not the hype. Let the product speak.
+
+Talking about customers:
+Off-brand: "Thousands of users leverage our platform to optimise their talent acquisition workflows and maximise ROI."
+On-brand: "Thousands of talent teams use Vouch to fill roles faster — without the chaos."
+Rule: Write like you're on their side, not reporting metrics at them.
 
 FOUNDER VOICE (use when writing or reviewing copy):
 These patterns come from the founder's writing and reflect the authentic Vouch voice:
