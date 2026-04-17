@@ -441,10 +441,13 @@ export default function BrandAgent() {
                   key={i}
                   className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
-                  {msg.role === "assistant" && (
+                  {msg.role === "assistant" && i === messages.length - 1 && (
                     <div className="shrink-0 mt-1">
                       <LemniscateAnimation width={76} height={34} />
                     </div>
+                  )}
+                  {msg.role === "assistant" && i !== messages.length - 1 && (
+                    <div className="shrink-0 mt-1" style={{ width: 76, height: 34 }} />
                   )}
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-3 ${
