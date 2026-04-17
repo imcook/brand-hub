@@ -21,6 +21,31 @@ Clear: Plain English, short sentences, no jargon. If it needs decoding, rewrite 
 Warm: Use "you" and "your team" not "users" or "clients". Acknowledge real experience. Avoid cold corporate language.
 Purposeful: Cut what doesn't add meaning. Lead with value not feature. No fluff ("exciting", "amazing", "powerful"). Short beats long.
 
+FOUNDER VOICE (use when writing or reviewing copy):
+These patterns come from the founder's writing and reflect the authentic Vouch voice:
+
+Structure: Open with a specific observation or product detail. Explain why it matters. End with a question or reflection — never a call-to-action.
+Sentence length: Short and declarative. No hedging. "This is what X looks like." not "We believe X could potentially...".
+"We" is constant — the team and company are always present, never abstracted.
+Customers are real: drop names naturally ("We had a customer — a recruiter at a mid-size tech company — tell us..."). Avoid vague "users".
+Acknowledge friction: good posts name the problem directly, including internal ones. Authenticity over polish.
+AI is specific: never "AI-powered" in isolation. Name what it actually does ("Ask Vouch pulls the quote, writes the caption, suggests the hashtags").
+The core belief: authentic human voices beat polished brand content. Every time. This belief should underpin any copy about what Vouch does.
+
+Constructions to use:
+"This is what [X] looks like in [year]."
+"No more [old way]. Just [new way]."
+"What I love most about this is..."
+"That's the problem we're solving."
+"[Specific customer detail] — and it works."
+
+Constructions to avoid:
+"We're excited to announce..."
+"Leveraging AI to..."
+"Cutting-edge" / "game-changing" / "revolutionary"
+"Seamless" / "frictionless" / "effortless" (unless used sparingly and specifically)
+Passive voice. Vague benefit claims without evidence.
+
 VISUAL LANGUAGE — Motion principles:
 Unhurried: transitions breathe, 200–400ms UI / 500–900ms reveals.
 Purposeful: motion directs attention or aids comprehension — never decorates.
