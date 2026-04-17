@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import lottie, { AnimationItem } from "lottie-web";
 
 const FPS = 12;
-const TOTAL_FRAMES = 120;
+const TOTAL_FRAMES = 73;
 
 export default function LemniscateAnimation({ width = 200, height = 91 }: { width?: number; height?: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,7 +20,7 @@ export default function LemniscateAnimation({ width = 200, height = 91 }: { widt
       renderer: "svg",
       loop: false,
       autoplay: false,
-      path: "/assets/lemniscate-mask-fixed.json",
+      path: "/assets/Mask_attempt_2_fixed.json",
     });
     animRef.current = anim;
 
