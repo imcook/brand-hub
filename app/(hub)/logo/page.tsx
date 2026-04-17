@@ -132,7 +132,7 @@ export default function LogoPage() {
               },
               {
                 label: "Separation",
-                rule: "Use a clear visual separator between logos — a vertical rule, 'x', or sufficient whitespace. Minimum gap: 2× the wordmark height.",
+                rule: "We use a '×' as the standard separator between logos. Leave clear space around the Vouch wordmark consistent with the clear space guideline above — apply the same minimum margin on the sides facing the partner logo.",
               },
               {
                 label: "Backgrounds",
@@ -188,19 +188,21 @@ export default function LogoPage() {
             </div>
           </div>
 
-          {/* Visual placeholder */}
-          <div className="border border-dashed border-sea-blue-mid/20 rounded-2xl p-8 bg-white/50 flex items-center justify-between gap-6">
-            <div className="flex items-center gap-6">
+          {/* Lockup example */}
+          <div className="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden">
+            <div className="px-6 py-8 flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/logo/Vouch blue.svg" alt="Vouch wordmark" className="h-8 w-auto" />
-              <span className="font-body text-dark-neutral/20 text-xl">×</span>
-              <div className="w-24 h-8 rounded bg-dark-neutral/8 flex items-center justify-center">
-                <span className="font-body text-xs text-dark-neutral/20">Partner logo</span>
-              </div>
+              <img
+                src="/assets/logo-usage/Partner%20Lock%20up%20example.svg"
+                alt="Co-branding lockup example"
+                style={{ height: 60, width: "auto" }}
+              />
             </div>
-            <div className="text-right shrink-0">
-              <p className="font-body font-semibold text-dark-neutral text-sm mb-1">Lockup examples</p>
-              <p className="text-xs text-dark-neutral/40 font-body">Coming soon — contact ian@vouchfor.com</p>
+            <div className="px-6 py-4 border-t border-black/5">
+              <p className="font-body text-xs text-dark-neutral/40 leading-relaxed">
+                Lockup example — more examples available, contact{" "}
+                <a href="mailto:ian@vouchfor.com" className="text-sea-blue-mid hover:underline">ian@vouchfor.com</a>
+              </p>
             </div>
           </div>
         </div>

@@ -48,22 +48,43 @@ function formatName(filename: string): string {
     .trim();
 }
 
+function BgToggle({ bg, onChange }: { bg: "dark" | "light"; onChange: (v: "dark" | "light") => void }) {
+  return (
+    <div className="flex items-center gap-1 p-0.5 rounded-lg bg-black/5 text-[11px] font-body">
+      {(["dark", "light"] as const).map((v) => (
+        <button
+          key={v}
+          onClick={() => onChange(v)}
+          className={`px-2.5 py-1 rounded-md transition-all capitalize ${
+            bg === v ? "bg-white shadow-sm text-dark-neutral" : "text-dark-neutral/40 hover:text-dark-neutral/60"
+          }`}
+        >
+          {v}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 function ImageTile({
   filename,
   webpPath,
   pngPath,
+  bg = "dark",
 }: {
   filename: string;
   webpPath: string;
   pngPath: string;
+  bg?: "dark" | "light";
 }) {
   const [hovered, setHovered] = useState(false);
   const name = formatName(filename);
+  const isDark = bg === "dark";
 
   return (
     <div className="flex flex-col gap-2">
       <div
-        className="relative rounded-xl overflow-hidden bg-sea-blue-dark cursor-pointer"
+        className={`relative rounded-xl overflow-hidden cursor-pointer ${isDark ? "bg-sea-blue-dark" : "bg-sand-light border border-black/5"}`}
         style={{ aspectRatio: "16/10" }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -99,6 +120,8 @@ function ImageTile({
 }
 
 export default function VisualGraphicsPage() {
+  const [imageryBg, setImageryBg] = useState<"dark" | "light">("dark");
+
   return (
     <div className="px-10 py-10 max-w-5xl">
       <PageHeader
@@ -262,33 +285,13 @@ export default function VisualGraphicsPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
-          <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-4">Inspiration & references</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              {
-                name: "Notion — Reintroduction video",
-                description: "Strong example of a tech brand using warmth, texture, and unhurried motion to feel human rather than corporate.",
-              },
-              {
-                name: "Anthropic — Claude branding & palette",
-                description: "An AI brand that deliberately avoids the clinical, hyper-digital aesthetic. Warm palette, considered typography, earned restraint.",
-              },
-            ].map(({ name, description }) => (
-              <div key={name} className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-sea-blue-mid/40 mt-2 shrink-0" />
-                <div>
-                  <p className="font-body font-semibold text-dark-neutral text-sm mb-0.5">{name}</p>
-                  <p className="font-body text-xs text-dark-neutral/50 leading-relaxed">{description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Brand Imagery</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="font-heading text-2xl text-dark-neutral">Brand Imagery</h2>
+          <BgToggle bg={imageryBg} onChange={setImageryBg} />
+        </div>
         <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {IMAGERY.map((file) => (
@@ -297,6 +300,7 @@ export default function VisualGraphicsPage() {
                 filename={file}
                 webpPath={`/assets/images/Imagery/WebP/${file}.webp`}
                 pngPath={`/assets/images/Imagery/PNG/${file}.png`}
+                bg={imageryBg}
               />
             ))}
           </div>

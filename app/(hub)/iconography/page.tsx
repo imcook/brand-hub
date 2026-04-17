@@ -55,9 +55,28 @@ const ICONS = [
   "wave-lines-portrait.svg",
 ];
 
-function IconTile({ file, large = false }: { file: string; large?: boolean }) {
+function BgToggle({ bg, onChange }: { bg: "dark" | "light"; onChange: (v: "dark" | "light") => void }) {
+  return (
+    <div className="flex items-center gap-1 p-0.5 rounded-lg bg-black/5 text-[11px] font-body">
+      {(["dark", "light"] as const).map((v) => (
+        <button
+          key={v}
+          onClick={() => onChange(v)}
+          className={`px-2.5 py-1 rounded-md transition-all capitalize ${
+            bg === v ? "bg-white shadow-sm text-dark-neutral" : "text-dark-neutral/40 hover:text-dark-neutral/60"
+          }`}
+        >
+          {v}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function IconTile({ file, large = false, bg = "dark" }: { file: string; large?: boolean; bg?: "dark" | "light" }) {
   const [copied, setCopied] = useState(false);
   const src = `/assets/icons/${encodeURIComponent(file)}`;
+  const isDark = bg === "dark";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(src);
@@ -68,7 +87,9 @@ function IconTile({ file, large = false }: { file: string; large?: boolean }) {
   return (
     <div
       onClick={handleCopy}
-      className={`group relative w-full ${large ? "aspect-[4/3]" : "aspect-square"} bg-sea-blue-dark rounded-xl flex items-center justify-center hover:opacity-90 transition-all cursor-pointer overflow-hidden`}
+      className={`group relative w-full ${large ? "aspect-[4/3]" : "aspect-square"} rounded-xl flex items-center justify-center hover:opacity-90 transition-all cursor-pointer overflow-hidden ${
+        isDark ? "bg-sea-blue-dark" : "bg-sand-light border border-black/5"
+      }`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -83,17 +104,19 @@ function IconTile({ file, large = false }: { file: string; large?: boolean }) {
           download={file}
           onClick={(e) => e.stopPropagation()}
           title="Download"
-          className="w-7 h-7 rounded-lg bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-colors"
+          className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors ${
+            isDark ? "bg-white/20 hover:bg-white/40" : "bg-black/10 hover:bg-black/20"
+          }`}
         >
           <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-            <path d="M5.5 1v6M2.5 5l3 3 3-3M1 10h9" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M5.5 1v6M2.5 5l3 3 3-3M1 10h9" stroke={isDark ? "white" : "#212121"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
       </div>
 
       {copied && (
-        <div className="absolute inset-0 flex items-center justify-center bg-sea-blue-dark/90 rounded-xl">
-          <span className="text-[10px] text-white/70 font-body font-medium">Path copied</span>
+        <div className={`absolute inset-0 flex items-center justify-center rounded-xl ${isDark ? "bg-sea-blue-dark/90" : "bg-sand-light/90"}`}>
+          <span className={`text-[10px] font-body font-medium ${isDark ? "text-white/70" : "text-dark-neutral/50"}`}>Path copied</span>
         </div>
       )}
     </div>
@@ -145,6 +168,8 @@ function DownloadAllButton() {
 }
 
 export default function IconographyPage() {
+  const [bg, setBg] = useState<"dark" | "light">("dark");
+
   return (
     <div className="px-10 py-10 max-w-5xl">
       <PageHeader
@@ -154,11 +179,15 @@ export default function IconographyPage() {
 
       {/* Brand Motifs */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Brand Motifs</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="font-heading text-2xl text-dark-neutral">Brand Motifs</h2>
+          <BgToggle bg={bg} onChange={setBg} />
+        </div>
+        <p className="font-body text-xs text-dark-neutral/40 mb-4">All icons have transparent backgrounds — toggle above to preview on dark or light.</p>
         <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
           <div className="grid grid-cols-2 max-w-sm gap-4">
             {BRAND_MOTIFS.map((file) => (
-              <IconTile key={file} file={file} large />
+              <IconTile key={file} file={file} large bg={bg} />
             ))}
           </div>
         </div>
@@ -166,11 +195,11 @@ export default function IconographyPage() {
 
       {/* All Icons */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Icons</h2>
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Icons</h2>
         <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
           <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3">
             {ICONS.map((file) => (
-              <IconTile key={file} file={file} />
+              <IconTile key={file} file={file} bg={bg} />
             ))}
           </div>
         </div>
