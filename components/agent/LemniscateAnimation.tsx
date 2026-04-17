@@ -4,13 +4,20 @@ import { useEffect, useRef } from "react";
 import lottie, { AnimationItem } from "lottie-web";
 
 const FPS = 12;
-const TOTAL_FRAMES = 73;
+const FRAME_DURATION = 1000 / FPS;
+
+// Playback sequence:
+// 1. Play frames 0–22 once
+// 2. Pause 1s
+// 3. Play frames 22–48 once
+// 4. Pause 1s
+// 5. Loop steps 3–4 indefinitely
 
 export default function LemniscateAnimation({ width = 200, height = 91 }: { width?: number; height?: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<AnimationItem | null>(null);
-  const tickerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const frameRef = useRef(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -24,17 +31,43 @@ export default function LemniscateAnimation({ width = 200, height = 91 }: { widt
     });
     animRef.current = anim;
 
-    const step = () => {
-      anim.goToAndStop(frameRef.current, true);
-      frameRef.current = (frameRef.current + 1) % TOTAL_FRAMES;
+    const clearTicker = () => {
+      if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
+      if (timeoutRef.current) { clearTimeout(timeoutRef.current); timeoutRef.current = null; }
     };
 
-    anim.addEventListener("DOMLoaded", () => {
-      tickerRef.current = setInterval(step, 1000 / FPS);
-    });
+    const playRange = (from: number, to: number, onComplete: () => void) => {
+      clearTicker();
+      let frame = from;
+      anim.goToAndStop(frame, true);
+      intervalRef.current = setInterval(() => {
+        frame++;
+        anim.goToAndStop(frame, true);
+        if (frame >= to) {
+          clearTicker();
+          onComplete();
+        }
+      }, FRAME_DURATION);
+    };
+
+    const loopSegment = () => {
+      playRange(22, 48, () => {
+        timeoutRef.current = setTimeout(loopSegment, 1000);
+      });
+    };
+
+    const startSequence = () => {
+      // Step 1: play 0–22 once
+      playRange(0, 22, () => {
+        // Step 2: pause 1s, then enter the loop
+        timeoutRef.current = setTimeout(loopSegment, 1000);
+      });
+    };
+
+    anim.addEventListener("DOMLoaded", startSequence);
 
     return () => {
-      if (tickerRef.current) clearInterval(tickerRef.current);
+      clearTicker();
       anim.destroy();
     };
   }, []);
