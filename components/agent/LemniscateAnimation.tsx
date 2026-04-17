@@ -13,7 +13,7 @@ const FRAME_DURATION = 1000 / FPS;
 // 4. Pause 1s
 // 5. Loop steps 3–4 indefinitely
 
-export default function LemniscateAnimation({ width = 200, height = 91 }: { width?: number; height?: number }) {
+export default function LemniscateAnimation({ className = "w-[200px]" }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<AnimationItem | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -57,9 +57,7 @@ export default function LemniscateAnimation({ width = 200, height = 91 }: { widt
     };
 
     const startSequence = () => {
-      // Step 1: play 0–22 once
       playRange(0, 22, () => {
-        // Step 2: pause 1s, then enter the loop
         timeoutRef.current = setTimeout(loopSegment, 1000);
       });
     };
@@ -75,7 +73,8 @@ export default function LemniscateAnimation({ width = 200, height = 91 }: { widt
   return (
     <div
       ref={containerRef}
-      style={{ width, height }}
+      className={className}
+      style={{ aspectRatio: "1080/490" }}
       aria-hidden="true"
     />
   );

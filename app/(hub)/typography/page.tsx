@@ -18,7 +18,7 @@ const scaleEntries = [
 
 export default function TypographyPage() {
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Typography"
         description="Two typefaces work in harmony — Martina Plantijn for expression, Inter for clarity."
@@ -149,7 +149,8 @@ export default function TypographyPage() {
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-6">Web Type Scale</h2>
         <div className="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden">
-          <div className="grid grid-cols-4 border-b border-black/5">
+          <div className="overflow-x-auto">
+          <div className="grid grid-cols-4 border-b border-black/5 min-w-[480px]">
             {["Style", "Desktop", "Tablet", "Mobile"].map((h) => (
               <div key={h} className="px-4 py-2.5 text-[10px] uppercase tracking-widest font-body font-semibold text-dark-neutral/30">
                 {h}
@@ -167,13 +168,14 @@ export default function TypographyPage() {
             { label: "Body", desktop: "16px / 1rem", tablet: "—", mobile: "—" },
             { label: "Small", desktop: "14px / 0.875rem", tablet: "—", mobile: "—" },
           ].map((row, i) => (
-            <div key={row.label} className={`grid grid-cols-4 ${i % 2 === 0 ? "" : "bg-sand-light/40"} divide-x divide-black/5`}>
+            <div key={row.label} className={`grid grid-cols-4 min-w-[480px] ${i % 2 === 0 ? "" : "bg-sand-light/40"} divide-x divide-black/5`}>
               <div className="px-4 py-3 text-xs font-body font-semibold text-dark-neutral">{row.label}</div>
               <div className="px-4 py-3 text-xs font-mono text-dark-neutral/70">{row.desktop}</div>
               <div className="px-4 py-3 text-xs font-mono text-dark-neutral/40">{row.tablet}</div>
               <div className="px-4 py-3 text-xs font-mono text-dark-neutral/40">{row.mobile}</div>
             </div>
           ))}
+          </div>
         </div>
       </section>
 

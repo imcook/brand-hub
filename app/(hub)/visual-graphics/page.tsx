@@ -123,7 +123,7 @@ export default function VisualGraphicsPage() {
   const [imageryBg, setImageryBg] = useState<"dark" | "light">("dark");
 
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Visual Language"
         description="Motion principles, approved backgrounds, and brand imagery for use across Vouch communications."

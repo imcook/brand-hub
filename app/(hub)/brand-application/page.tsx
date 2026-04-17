@@ -71,7 +71,7 @@ export default function BrandApplicationPage() {
   };
 
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Brand Application"
         description="Tools and templates for applying the Vouch brand in the real world."

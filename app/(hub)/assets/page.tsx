@@ -73,7 +73,7 @@ const TYPE_COLOURS: Record<string, string> = {
 
 export default function AssetsPage() {
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Packaged Assets"
         description="Download approved Vouch brand assets — logos, fonts, and production-ready files."

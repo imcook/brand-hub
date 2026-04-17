@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Logo — Vouch Brand Hub" };
 
 export default function LogoPage() {
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Logo"
         description="The Vouch wordmark is our primary brand identifier. Use only the supplied files — never recreate or typeset it."

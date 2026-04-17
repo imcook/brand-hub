@@ -403,7 +403,7 @@ export default function BrandAgent() {
         <div className="flex-1 flex flex-col items-center justify-center px-6">
 
           <div className="mb-7">
-            <LemniscateAnimation width={200} height={91} />
+            <LemniscateAnimation className="w-[120px] sm:w-[200px]" />
           </div>
 
           {/* Copy */}
@@ -444,11 +444,11 @@ export default function BrandAgent() {
                 >
                   {msg.role === "assistant" && i === messages.length - 1 && (
                     <div className="shrink-0 mt-1">
-                      <LemniscateAnimation width={76} height={34} />
+                      <LemniscateAnimation className="w-[48px] sm:w-[76px]" />
                     </div>
                   )}
                   {msg.role === "assistant" && i !== messages.length - 1 && (
-                    <div className="shrink-0 mt-1" style={{ width: 76, height: 34 }} />
+                    <div className="shrink-0 mt-1 w-[48px] sm:w-[76px]" style={{ aspectRatio: "1080/490" }} />
                   )}
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-3 ${

@@ -74,7 +74,7 @@ function PhotoTile({ name }: { name: string }) {
 
 export default function PhotographyPage() {
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Photography"
         description="Approved photography for use across Vouch communications."

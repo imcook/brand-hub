@@ -10,7 +10,7 @@ export default function BrandVoicePage() {
   const { voice } = brand;
 
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Brand Voice & Messaging"
         description="How Vouch speaks — the tone, vocabulary, and principles that make our communication recognisably ours."

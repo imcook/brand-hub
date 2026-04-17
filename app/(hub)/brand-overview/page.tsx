@@ -10,7 +10,7 @@ export default function BrandOverviewPage() {
   const { visualIdentity, positioning } = brand;
 
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Brand Overview"
         description="Who we are, what we believe, and how we show up in the world."

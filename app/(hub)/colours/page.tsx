@@ -17,7 +17,7 @@ export default function ColoursPage() {
   ];
 
   return (
-    <div className="px-10 py-10 max-w-5xl">
+    <div className="px-4 py-6 md:px-10 md:py-10 max-w-5xl">
       <PageHeader
         title="Colours"
         description="The Vouch colour system is built around Sea Blue and Sand Light as the foundation — warm, calm, and professional."
