@@ -422,7 +422,7 @@ export default function BrandAgent() {
               <button
                 key={chip.label}
                 onClick={() => sendMessage(chip.label)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-sea-blue-mid/15 bg-white text-xs text-dark-neutral hover:border-sea-blue-mid hover:bg-sea-blue-mid/5 transition-all font-body shadow-sm"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#212121]/15 bg-[#F3EDE2] text-xs text-[#614C28] hover:border-sea-blue-mid hover:bg-sea-blue-mid/5 transition-all font-body shadow-sm"
               >
                 {chip.label}
               </button>
@@ -481,7 +481,7 @@ export default function BrandAgent() {
                 <button
                   key={chip.label}
                   onClick={() => sendMessage(chip.label)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-sea-blue-mid/15 bg-white text-xs text-dark-neutral hover:border-sea-blue-mid hover:bg-sea-blue-mid/5 transition-all font-body"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#212121]/15 bg-[#F3EDE2] text-xs text-[#614C28] hover:border-sea-blue-mid hover:bg-sea-blue-mid/5 transition-all font-body"
                 >
                   {chip.label}
                 </button>
