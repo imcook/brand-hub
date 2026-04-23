@@ -129,7 +129,7 @@ export default function Sidebar({
             <span>Share Feedback</span>
           </a>
           <div className="px-2 pt-2 text-[10px] text-white/25 font-body">
-            Last updated: August 2025 — V1
+            Last updated: April 2026 — v0.6
           </div>
         </div>
       </div>
@@ -192,7 +192,7 @@ export default function Sidebar({
           <span>Collapse</span>
         </button>
         <div className="px-2 pt-2 text-[10px] text-white/25 font-body">
-          Last updated: August 2025 — V1
+          Last updated: April 2026 — v0.6
         </div>
       </div>
     </aside>
