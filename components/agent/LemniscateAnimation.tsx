@@ -36,7 +36,7 @@ export default function LemniscateAnimation({ className = "w-[200px]" }: { class
       if (timeoutRef.current) { clearTimeout(timeoutRef.current); timeoutRef.current = null; }
     };
 
-    const playRange = (from: number, to: number, onComplete: () => void) => {
+    const playRange = (from: number, to: number, frameDuration: number, onComplete: () => void) => {
       clearTicker();
       let frame = from;
       anim.goToAndStop(frame, true);
@@ -47,25 +47,48 @@ export default function LemniscateAnimation({ className = "w-[200px]" }: { class
           clearTicker();
           onComplete();
         }
-      }, FRAME_DURATION);
+      }, frameDuration);
+    };
+
+    const loopWorking = () => {
+      playRange(22, 48, FRAME_DURATION / 2, loopWorking);
     };
 
     const loopSegment = () => {
-      playRange(22, 48, () => {
+      playRange(22, 48, FRAME_DURATION, () => {
         timeoutRef.current = setTimeout(loopSegment, 1000);
       });
     };
 
     const startSequence = () => {
-      playRange(0, 22, () => {
+      playRange(0, 22, FRAME_DURATION, () => {
         timeoutRef.current = setTimeout(loopSegment, 1000);
       });
     };
 
-    anim.addEventListener("DOMLoaded", startSequence);
+    anim.addEventListener("DOMLoaded", () => {
+      if (document.body.classList.contains("agent-working")) {
+        loopWorking();
+      } else {
+        startSequence();
+      }
+    });
+
+    const observer = new MutationObserver(() => {
+      if (document.body.classList.contains("agent-working")) {
+        clearTicker();
+        loopWorking();
+      } else {
+        clearTicker();
+        startSequence();
+      }
+    });
+
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
 
     return () => {
       clearTicker();
+      observer.disconnect();
       anim.destroy();
     };
   }, []);

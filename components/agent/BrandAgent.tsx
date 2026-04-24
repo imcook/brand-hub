@@ -320,6 +320,7 @@ export default function BrandAgent() {
     setMessages(next);
     setInput("");
     setLoading(true);
+    document.body.classList.add("agent-working");
 
     const assistantMsg: Message = { role: "assistant", content: "" };
     setMessages([...next, assistantMsg]);
@@ -353,6 +354,7 @@ export default function BrandAgent() {
         },
       ]);
     } finally {
+      document.body.classList.remove("agent-working");
       setLoading(false);
     }
   };
