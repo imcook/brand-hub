@@ -50,11 +50,10 @@ export default function TypographyPage() {
               </p>
             </div>
             <a
-              href={brand.typography.primary.file}
-              download
+              href="mailto:ian@vouchfor.com?subject=Martina%20Plantijn%20typeface%20access%20request"
               className="shrink-0 px-4 py-2 rounded-lg border border-sea-blue-mid/30 text-sea-blue-mid text-xs font-body font-medium hover:bg-sea-blue-mid hover:text-white transition-all"
             >
-              Download .otf
+              Request access
             </a>
           </div>
         </div>
