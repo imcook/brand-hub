@@ -11,6 +11,7 @@ type AssetItem = {
   description: string;
   file: string;
   badge: string;
+  requestOnly?: boolean;
 };
 
 const ASSET_ITEMS: AssetItem[] = [
@@ -29,6 +30,7 @@ const ASSET_ITEMS: AssetItem[] = [
     description: "Primary typeface — headings and display text",
     file: "/assets/fonts/Martina Plantijn/OTF/MartinaPlantijn-Regular.otf",
     badge: "Font",
+    requestOnly: true,
   },
   {
     name: "Martina Plantijn Bold",
@@ -36,6 +38,7 @@ const ASSET_ITEMS: AssetItem[] = [
     description: "Primary typeface — bold weight",
     file: "/assets/fonts/Martina Plantijn/OTF/MartinaPlantijn-Bold.otf",
     badge: "Font",
+    requestOnly: true,
   },
   {
     name: "Martina Plantijn Medium",
@@ -43,6 +46,7 @@ const ASSET_ITEMS: AssetItem[] = [
     description: "Primary typeface — medium weight",
     file: "/assets/fonts/Martina Plantijn/OTF/MartinaPlantijn-Medium.otf",
     badge: "Font",
+    requestOnly: true,
   },
   {
     name: "Inter Variable",
@@ -100,13 +104,22 @@ export default function AssetsPage() {
               <span className={`text-[10px] px-2 py-1 rounded font-mono font-medium ${TYPE_COLOURS[item.type] || "bg-gray-100 text-gray-500"}`}>
                 {item.type}
               </span>
-              <a
-                href={item.file}
-                download
-                className="px-4 py-2 rounded-lg border border-sea-blue-mid/20 text-sea-blue-mid text-xs font-body font-medium hover:bg-sea-blue-mid hover:text-white hover:border-sea-blue-mid transition-all"
-              >
-                Download
-              </a>
+              {item.requestOnly ? (
+                <a
+                  href="mailto:ian@vouchfor.com?subject=Martina%20Plantijn%20typeface%20access%20request"
+                  className="px-4 py-2 rounded-lg border border-sea-blue-mid/20 text-sea-blue-mid text-xs font-body font-medium hover:bg-sea-blue-mid hover:text-white hover:border-sea-blue-mid transition-all"
+                >
+                  Request access
+                </a>
+              ) : (
+                <a
+                  href={item.file}
+                  download
+                  className="px-4 py-2 rounded-lg border border-sea-blue-mid/20 text-sea-blue-mid text-xs font-body font-medium hover:bg-sea-blue-mid hover:text-white hover:border-sea-blue-mid transition-all"
+                >
+                  Download
+                </a>
+              )}
             </div>
           </div>
         ))}
