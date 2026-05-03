@@ -297,13 +297,6 @@ function VerticalLine() {
   return <div className="w-px h-14 bg-dark-neutral/10 mx-auto my-8" />;
 }
 
-const PROMPT_CHIPS = [
-  { label: "Review my copy" },
-  { label: "Write on-brand copy" },
-  { label: "Find an asset" },
-  { label: "What are our brand colours?" },
-];
-
 const INSPIRED_QUESTIONS = [
   "What are our brand colours and when should I use each?",
   "What fonts do we use and what are they each for?",
@@ -409,22 +402,7 @@ export default function BrandAgent() {
     inputRef.current?.focus();
   };
 
-  const chips = (
-    <div className="flex flex-wrap gap-2 justify-center">
-      {PROMPT_CHIPS.map((chip) => (
-        <button
-          key={chip.label}
-          onClick={() => sendMessage(chip.label)}
-          disabled={loading}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#212121]/15 bg-[#F3EDE2] text-xs text-[#614C28] hover:border-sea-blue-mid hover:bg-sea-blue-mid/5 transition-all font-body disabled:opacity-40"
-        >
-          {chip.label}
-        </button>
-      ))}
-    </div>
-  );
-
-  const inputField = (placeholder: string) => (
+const inputField = (placeholder: string) => (
     <div className="relative">
       <textarea
         ref={inputRef}
