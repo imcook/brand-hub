@@ -58,7 +58,6 @@ type Segment =
   | { type: "photos"; items: PhotoItem[] };
 
 function parseContent(raw: string): Segment[] {
-  // Strip any unclosed block at the end (mid-stream)
   const content = raw.replace(/\[BRAND_(?:COLOURS|LOGOS)\](?:(?!\[\/BRAND_)[\s\S])*$/, "").trim();
 
   const segments: Segment[] = [];
@@ -83,13 +82,13 @@ function parseContent(raw: string): Segment[] {
         segments.push({ type: "icons", items: parsed });
       } else if (match[1] === "VISUALS") {
         segments.push({ type: "visuals", items: parsed });
-      } else {
+      } else if (match[1] === "PHOTOS") {
         segments.push({ type: "photos", items: parsed });
       }
     } catch {
-      segments.push({ type: "text", content: match[0] });
+      // skip malformed blocks
     }
-    lastIndex = regex.lastIndex;
+    lastIndex = match.index + match[0].length;
   }
 
   if (lastIndex < content.length) {
@@ -136,7 +135,7 @@ function LogoCard({ item }: { item: LogoItem }) {
 }
 
 function FontCard({ item }: { item: FontItem }) {
-  const sampleText = item.name === "Inter" ? "The quick brown fox" : "The quick brown fox";
+  const sampleText = "The quick brown fox";
   const fontFamily = item.name === "Inter" ? "Inter, sans-serif" : "'Martina Plantijn', Georgia, serif";
 
   return (
@@ -294,6 +293,10 @@ function MessageContent({ content }: { content: string }) {
   );
 }
 
+function VerticalLine() {
+  return <div className="w-px h-14 bg-dark-neutral/10 mx-auto my-8" />;
+}
+
 const PROMPT_CHIPS = [
   { label: "Review my copy" },
   { label: "Write on-brand copy" },
@@ -309,9 +312,19 @@ export default function BrandAgent() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+  const isEmpty = messages.length === 0;
+  const hasInput = input.trim().length > 0;
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.style.height = "auto";
+      inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
+    }
+  }, [input]);
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || loading) return;
@@ -348,10 +361,7 @@ export default function BrandAgent() {
     } catch {
       setMessages([
         ...next,
-        {
-          role: "assistant",
-          content: "Sorry, I ran into an issue. Please try again.",
-        },
+        { role: "assistant", content: "Sorry, I ran into an issue. Please try again." },
       ]);
     } finally {
       document.body.classList.remove("agent-working");
@@ -371,127 +381,120 @@ export default function BrandAgent() {
     }
   };
 
-  const isEmpty = messages.length === 0;
+  const chips = (
+    <div className="flex flex-wrap gap-2 justify-center">
+      {PROMPT_CHIPS.map((chip) => (
+        <button
+          key={chip.label}
+          onClick={() => sendMessage(chip.label)}
+          disabled={loading}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#212121]/15 bg-[#F3EDE2] text-xs text-[#614C28] hover:border-sea-blue-mid hover:bg-sea-blue-mid/5 transition-all font-body disabled:opacity-40"
+        >
+          {chip.label}
+        </button>
+      ))}
+    </div>
+  );
 
-  const inputField = (
-    <div className="relative bg-white rounded-2xl border border-black/10 shadow-sm focus-within:border-sea-blue-mid focus-within:shadow-md transition-all">
+  const inputField = (placeholder: string) => (
+    <div className="relative">
       <textarea
         ref={inputRef}
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Ask Vouch Flow anything..."
+        placeholder={placeholder}
+        disabled={loading}
         rows={1}
-        className="w-full resize-none bg-transparent px-4 py-3.5 pr-12 text-sm text-dark-neutral placeholder-dark-neutral/30 font-body focus:outline-none max-h-40 overflow-y-auto"
-        style={{ lineHeight: "1.5" }}
+        className="w-full bg-transparent resize-none border-b border-dark-neutral/20 focus:border-sea-blue-mid focus:outline-none font-body text-sm text-dark-neutral placeholder:text-dark-neutral/30 py-3 pr-10 transition-colors overflow-hidden"
+        style={{ lineHeight: "1.6" }}
       />
       <button
         type="submit"
         disabled={!input.trim() || loading}
-        className="absolute right-3 bottom-3 w-8 h-8 rounded-xl bg-sea-blue-mid text-white flex items-center justify-center hover:bg-sea-blue-dark transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+        className="absolute right-0 bottom-3 text-dark-neutral/30 hover:text-sea-blue-mid disabled:opacity-30 transition-colors"
+        aria-label="Send"
       >
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M7 12V2M2 7l5-5 5 5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
     </div>
   );
 
   return (
-    <div className="flex flex-col h-full">
+    <div
+      className={`flex flex-col h-full transition-colors duration-700 ${isEmpty && hasInput ? "bg-sky-blue-light" : ""}`}
+    >
       {isEmpty ? (
 
-        /* Empty state — Flow centred */
-        <div className="flex-1 flex flex-col items-center justify-center px-6">
-
-          <div className="mb-7">
-            <LemniscateAnimation className="w-[120px] sm:w-[200px]" />
+        /* Empty state */
+        <div className="flex-1 flex flex-col items-center justify-center px-8 py-16">
+          <div className="mb-10">
+            <LemniscateAnimation className="w-[160px] sm:w-[220px]" />
           </div>
-
-          {/* Copy */}
-          <p className="font-body text-sm text-dark-neutral/40 text-center max-w-md mb-8 leading-relaxed text-balance">
-            <span className="font-semibold text-dark-neutral/70">Flow</span> knows the Vouch brand inside out. Ask about colours, copy guidelines, assets — or get feedback on something you&apos;re writing.
+          <h1 className="font-heading text-4xl md:text-5xl text-sea-blue-dark text-center leading-tight mb-3">
+            Ask Flow anything.
+          </h1>
+          <p className="font-body text-sm text-dark-neutral/40 text-center mb-12 max-w-xs leading-relaxed">
+            Your Vouch brand guide, in conversation.
           </p>
-
-          {/* Input */}
-          <form onSubmit={handleSubmit} className="w-full max-w-xl mb-4">
-            {inputField}
+          <form onSubmit={handleSubmit} className="w-full max-w-lg mb-10">
+            {inputField("Ask anything about the Vouch brand...")}
           </form>
-
-          {/* Prompt chips */}
-          <div className="flex flex-wrap gap-2 justify-center">
-            {PROMPT_CHIPS.map((chip) => (
-              <button
-                key={chip.label}
-                onClick={() => sendMessage(chip.label)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#212121]/15 bg-[#F3EDE2] text-xs text-[#614C28] hover:border-sea-blue-mid hover:bg-sea-blue-mid/5 transition-all font-body shadow-sm"
-              >
-                {chip.label}
-              </button>
-            ))}
-          </div>
-
+          {chips}
         </div>
 
       ) : (
 
-        /* Active state — messages + pinned input */
+        /* Conversation state */
         <>
           <div className="flex-1 overflow-y-auto">
-            <div className="max-w-2xl mx-auto px-6 py-8 space-y-6">
-              {messages.map((msg, i) => (
-                <div
-                  key={i}
-                  className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                >
-                  {msg.role === "assistant" && i === messages.length - 1 && (
-                    <div className="shrink-0 mt-1">
-                      <LemniscateAnimation className="w-[48px] sm:w-[76px]" />
+            <div className="max-w-xl mx-auto px-8 pt-16 pb-8">
+              {messages.map((msg, i) => {
+                if (msg.role === "user") {
+                  return (
+                    <div key={i} className={i > 0 ? "mt-24" : ""}>
+                      <h2 className="font-heading text-3xl md:text-4xl text-sea-blue-dark text-center leading-tight">
+                        {msg.content}
+                      </h2>
                     </div>
-                  )}
-                  {msg.role === "assistant" && i !== messages.length - 1 && (
-                    <div className="shrink-0 mt-1 w-[48px] sm:w-[76px]" style={{ aspectRatio: "1080/490" }} />
-                  )}
-                  <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-3 ${
-                      msg.role === "user"
-                        ? "bg-sea-blue-mid text-white rounded-tr-sm text-sm leading-relaxed font-body whitespace-pre-wrap"
-                        : "bg-white text-dark-neutral rounded-tl-sm shadow-sm border border-black/5"
-                    }`}
-                  >
-                    {msg.role === "user" ? (
-                      msg.content
-                    ) : msg.content ? (
+                  );
+                }
+
+                const isLast = i === messages.length - 1;
+                const isThinking = isLast && loading && msg.content === "";
+
+                if (isThinking) {
+                  return (
+                    <div key={i} className="flex flex-col items-center py-6">
+                      <VerticalLine />
+                      <LemniscateAnimation className="w-[140px] sm:w-[180px]" />
+                    </div>
+                  );
+                }
+
+                return (
+                  <div key={i}>
+                    <VerticalLine />
+                    <div className="text-dark-neutral">
                       <MessageContent content={msg.content} />
-                    ) : (
-                      <span className="flex gap-1 items-center text-sea-blue-mid/50 py-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-sea-blue-mid/50 animate-bounce" style={{ animationDelay: "0ms" }} />
-                        <span className="w-1.5 h-1.5 rounded-full bg-sea-blue-mid/50 animate-bounce" style={{ animationDelay: "150ms" }} />
-                        <span className="w-1.5 h-1.5 rounded-full bg-sea-blue-mid/50 animate-bounce" style={{ animationDelay: "300ms" }} />
-                      </span>
-                    )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
               <div ref={bottomRef} />
             </div>
           </div>
 
-          <div className="px-6 pb-8 border-t border-black/5 pt-4">
-            <div className="flex flex-wrap gap-2 mb-3 max-w-2xl mx-auto">
-              {PROMPT_CHIPS.map((chip) => (
-                <button
-                  key={chip.label}
-                  onClick={() => sendMessage(chip.label)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#212121]/15 bg-[#F3EDE2] text-xs text-[#614C28] hover:border-sea-blue-mid hover:bg-sea-blue-mid/5 transition-all font-body"
-                >
-                  {chip.label}
-                </button>
-              ))}
+          {/* Pinned bottom input */}
+          <div className="border-t border-black/5 bg-sand-light/95 backdrop-blur-sm px-8 py-6">
+            <div className="max-w-xl mx-auto">
+              <form onSubmit={handleSubmit} className="mb-5">
+                {inputField("Ask a follow-up...")}
+              </form>
+              {chips}
             </div>
-            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-              {inputField}
-            </form>
           </div>
         </>
 
