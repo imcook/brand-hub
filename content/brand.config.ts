@@ -223,7 +223,7 @@ export const brand = {
 
   visualIdentity: {
     summary: "Vouch is designed to feel like the antithesis of a typical SaaS platform. The visual identity is calm, clear, modern, and human — deliberately decaffeinated in a world that's permanently turned up to eleven. Less digital, more editorial. Think paper-like backgrounds, subtle film grain, a serif that's confident without being formal, low contrast, generous space. Texture and tactility are key differentiators — where most SaaS feels glaring and clinical, Vouch feels grounded and real. A workspace that feels weightless and frictionless — somewhere you actually want to be. More Kindle, less iPad. The goal is something tangible and human that happens to be software — effortless, flexible, and quietly powerful.",
-    keywords: ["flow", "context", "decaffeinated", "frictionless", "alignment", "flexible", "weightless", "content", "space", "hub", "collaboration", "nexus", "speed", "assets", "human", "effortless", "magic", "sync", "texture", "tactility", "grain", "editorial"],
+    keywords: ["flow", "context", "decaffeinated", "frictionless", "weightless", "space", "collaboration", "human", "effortless", "texture", "tactility", "grain", "editorial"],
   },
 
   voice: {
