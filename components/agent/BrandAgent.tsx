@@ -304,6 +304,29 @@ const PROMPT_CHIPS = [
   { label: "What are our brand colours?" },
 ];
 
+const INSPIRED_QUESTIONS = [
+  "What are our brand colours and when should I use each?",
+  "What fonts do we use and what are they each for?",
+  "How should I use the Vouch logo correctly?",
+  "What words and phrases should we avoid in our copy?",
+  "How do we describe what Vouch does in one sentence?",
+  "What is our brand voice and tone?",
+  "Can you write an on-brand LinkedIn post about hiring?",
+  "What are Vouch&apos;s core values?",
+  "How should photography be used in Vouch designs?",
+  "What are our experience principles?",
+  "Can you help me write an on-brand email subject line?",
+  "What tone should I use for a customer-facing message?",
+  "How do we talk about our customers?",
+  "What visual assets do we have available?",
+  "Can you show me our logo variants?",
+  "What makes Vouch different from other hiring tools?",
+  "How should I write a product update announcement?",
+  "What icons do we have and how do I download them?",
+  "Can you review this copy and make it more on-brand?",
+  "What backgrounds and imagery can I use in designs?",
+];
+
 export default function BrandAgent() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -378,6 +401,12 @@ export default function BrandAgent() {
       e.preventDefault();
       sendMessage(input);
     }
+  };
+
+  const getInspired = () => {
+    const random = INSPIRED_QUESTIONS[Math.floor(Math.random() * INSPIRED_QUESTIONS.length)];
+    setInput(random);
+    inputRef.current?.focus();
   };
 
   const chips = (
@@ -489,6 +518,15 @@ export default function BrandAgent() {
               <form onSubmit={handleSubmit}>
                 {inputField("Ask a follow-up...")}
               </form>
+              <p className="mt-3 text-xs font-body text-dark-neutral/30">
+                Stuck on what to ask?{" "}
+                <button
+                  onClick={getInspired}
+                  className="text-dark-neutral/50 hover:text-sea-blue-mid transition-colors underline underline-offset-2"
+                >
+                  Get inspired
+                </button>
+              </p>
             </div>
           </div>
         </>
