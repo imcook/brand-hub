@@ -27,96 +27,37 @@ export default function BrandVoicePage() {
         </p>
       </div>
 
-      {/* Voice vs Tone intro */}
+      {/* Voice and Tone */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Voice and Tone</h2>
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Voice and Tone</h2>
         <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm">
           <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-4 max-w-2xl">
-            Think of it this way: you have the same voice all the time, but your tone changes. You speak one way catching up with a colleague, and a different way presenting to a new client. Same person — different register.
+            Think of it this way: you have the same voice all the time, but your tone changes. Same person at a team lunch versus presenting to a new client — different register, same personality. Vouch works the same way. Our voice is consistent. Our tone shifts depending on who we&apos;re talking to and what they&apos;re going through.
           </p>
-          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed max-w-2xl">
-            The same is true for Vouch. Our voice is consistent — it&apos;s who we are. Our tone shifts depending on who we&apos;re writing for and what they&apos;re going through.
-          </p>
-        </div>
-      </section>
-
-      {/* Voice */}
-      <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Voice</h2>
-        <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm mb-4">
           <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-4 max-w-2xl">
             We&apos;ve spent time with talent teams. We know what their days actually look like — the pressure, the manual work, the one-more-urgent-request. We&apos;re not here to sound impressive. We&apos;re here to be useful.
           </p>
           <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-4 max-w-2xl">
-            Vouch is an Australian company, and that shapes how we write. We don&apos;t overclaim. We don&apos;t shout. There&apos;s a directness and lack of pretension that runs through everything we make — we&apos;d rather understate something great than oversell something ordinary. Confident without the bravado, warm without being gushing, and calm in an industry that&apos;s permanently at full volume.
+            Vouch is an Australian company, and that shapes how we write. We don&apos;t overclaim. We don&apos;t shout. There&apos;s a directness and lack of pretension that runs through everything we make — we&apos;d rather understate something great than oversell something ordinary. <span className="text-dark-neutral font-medium">Confident</span> without the bravado. <span className="text-dark-neutral font-medium">Human</span> without being gushing. <span className="text-dark-neutral font-medium">Decaffeinated</span> — calm in an industry that&apos;s permanently at full volume.
           </p>
-          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed max-w-2xl">
-            When we write copy:
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-6 max-w-2xl">
+            Tone-wise: warmer when things are going well, patient and precise when explaining something complex, calm and direct when something&apos;s gone wrong. Vouch has personality — let it show when it comes naturally. But don&apos;t force it. A straight face is better than a strained joke.
           </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[
-            {
-              label: "We're plainspoken",
-              body: "Cut the buzzwords, the superlatives, the jargon. If it sounds like a press release or a pitch deck, rewrite it. Clarity is a form of respect.",
-            },
-            {
-              label: "We're direct",
-              body: "Lead with the thing that matters. Say it once, clearly. Don't hide the point inside qualifications or build-up.",
-            },
-            {
-              label: "We're human",
-              body: "Write for the person, not the persona. Acknowledge what they're actually going through — the stress, the wins, the friction.",
-            },
-            {
-              label: "We're understated",
-              body: "\"See how it works\" beats \"transform your entire workflow.\" Every time. The product earns the proof — we don't need to.",
-            },
-          ].map(({ label, body }) => (
-            <div key={label} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
-              <h3 className="font-heading text-lg text-sea-blue-dark mb-2">{label}</h3>
-              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Tone */}
-      <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Tone</h2>
-        <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm mb-4">
-          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-4 max-w-2xl">
-            Vouch&apos;s tone is usually relaxed, but clarity always comes first. Before you write, consider who&apos;s reading and where they&apos;re at. A team celebrating their first campaign going live is in a different headspace than someone troubleshooting a broken integration. Both should sound like Vouch — but they should feel different.
-          </p>
-          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed max-w-2xl">
-            Vouch has personality, so feel free to let it show when it&apos;s appropriate and comes naturally. But don&apos;t force it — a straight face is better than a strained joke.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[
-            {
-              context: "Good news or celebration",
-              tone: "Warmer, a little more relaxed. It's okay to enjoy the moment with them.",
-            },
-            {
-              context: "Explaining something complex",
-              tone: "Patient, clear, precise. Take them through it properly. No shortcuts.",
-            },
-            {
-              context: "Something's gone wrong",
-              tone: "Calm and direct. No panic, no over-apologising. Fix the problem first, explain second.",
-            },
-            {
-              context: "Routine product UI",
-              tone: "Neutral, efficient, near-invisible. Don't add friction with unnecessary language.",
-            },
-          ].map(({ context, tone }) => (
-            <div key={context} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
-              <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-2">When</p>
-              <p className="font-body font-semibold text-dark-neutral text-sm mb-3">{context}</p>
-              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{tone}</p>
-            </div>
-          ))}
+          <div className="border-t border-black/5 pt-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
+            {[
+              { label: "Plainspoken", body: "Cut the buzzwords, superlatives, jargon. If it reads like a press release, rewrite it." },
+              { label: "Direct", body: "Lead with what matters. Say it once, clearly. Don't bury the point in qualifications." },
+              { label: "Human", body: "Write for the person. Acknowledge what they're actually going through." },
+              { label: "Understated", body: "\"See how it works\" beats \"transform your workflow.\" The product earns the proof." },
+            ].map(({ label, body }) => (
+              <div key={label} className="flex gap-3">
+                <span className="text-sea-blue-mid/40 text-xs mt-0.5 shrink-0">—</span>
+                <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">
+                  <span className="text-dark-neutral font-medium">{label}.</span> {body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -127,7 +68,7 @@ export default function BrandVoicePage() {
           {[
             {
               rule: "Australian English",
-              guidance: "We're an Australian company — use Australian spelling. Realise, colour, organisation, centre, behaviour. When in doubt, follow the Macquarie Dictionary.",
+              guidance: "We're an Australian company — use Australian spelling throughout. Realise, colour, organisation, centre, behaviour, recognise. When in doubt, follow the Macquarie Dictionary.",
             },
             {
               rule: "Active voice",
@@ -139,7 +80,7 @@ export default function BrandVoicePage() {
             },
             {
               rule: "Exclamation marks",
-              guidance: "Sparingly — if you'd genuinely say it that way out loud, fine. But never in error messages or failure states. When in doubt, don't.",
+              guidance: "Sparingly — only if you'd genuinely say it that way out loud. Never in error messages or failure states. When in doubt, leave it out.",
             },
             {
               rule: "Numbers",
@@ -147,15 +88,15 @@ export default function BrandVoicePage() {
             },
             {
               rule: "Oxford comma",
-              guidance: "Always. \"Collaboration, content, and automation\" — not \"collaboration, content and automation.\" It prevents ambiguity.",
+              guidance: "Always. \"Collaboration, content, and automation\" — not \"collaboration, content and automation.\"",
             },
             {
               rule: "Em dash",
-              guidance: "Use an em dash — like this — in place of semicolons for related asides. No spaces on either side. Never use double hyphens (--) as a substitute.",
+              guidance: "Use an em dash — like this — in place of semicolons for related asides. No spaces on either side. Never use double hyphens (--).",
             },
             {
               rule: "Positive framing",
-              guidance: "Frame things as what to do, not what not to do. \"To add a user, go to Settings\" — not \"You can't add a user unless you go to Settings.\"",
+              guidance: "\"To add a user, go to Settings\" — not \"You can't add a user unless you go to Settings.\" Frame what to do, not what not to do.",
             },
           ].map(({ rule, guidance }) => (
             <div key={rule} className="px-6 py-5 grid grid-cols-1 md:grid-cols-[180px_1fr] gap-1 md:gap-8 items-baseline">
