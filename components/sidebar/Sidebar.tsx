@@ -61,7 +61,14 @@ function NavItems({ pathname, onNavigate }: { pathname: string; onNavigate?: () 
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    onClick={onNavigate}
+                    onClick={(e) => {
+                      if (pathname === "/" && item.href === "/") {
+                        e.preventDefault();
+                        window.location.href = "/";
+                        return;
+                      }
+                      onNavigate?.();
+                    }}
                     className={`flex items-center gap-2.5 px-2 py-2 rounded text-sm font-body transition-all ${
                       active
                         ? "bg-white/10 text-white border-l-2 border-sea-blue-mid pl-[6px]"
@@ -97,7 +104,7 @@ export default function Sidebar({
       <div className="fixed inset-0 z-50 bg-sea-blue-dark flex flex-col md:hidden">
         {/* Header */}
         <div className="px-4 py-4 border-b border-white/10 flex items-center justify-between shrink-0">
-          <Link href="/" onClick={onMobileClose}>
+          <Link href="/" onClick={(e) => { if (pathname === "/") { e.preventDefault(); window.location.href = "/"; } else { onMobileClose?.(); } }}>
             <Image
               src="/assets/logo/Vouch not white.svg"
               alt="Vouch"
@@ -158,7 +165,7 @@ export default function Sidebar({
     <aside className="hidden md:flex w-56 bg-sea-blue-dark flex-col shrink-0 h-screen sticky top-0 overflow-y-auto">
       {/* Logo */}
       <div className="px-4 py-5 border-b border-white/10">
-        <Link href="/" className="block">
+        <Link href="/" className="block" onClick={(e) => { if (pathname === "/") { e.preventDefault(); window.location.href = "/"; } }}>
           <Image
             src="/assets/logo/Vouch not white.svg"
             alt="Vouch"
