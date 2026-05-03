@@ -228,21 +228,21 @@ export const brand = {
 
   voice: {
     status: "Draft — pending internal review",
-    characteristics: ["Confident", "Clear", "Warm", "Purposeful"],
+    characteristics: ["Confident", "Human", "Decaffeinated"],
     preferredPhrases: [
-      "Effortless experience",
-      "We empower businesses",
-      "Streamline",
       "Talent teams",
-      "Collaborate",
+      "Your team",
+      "Effortless",
+      "In one place",
+      "Built for",
     ],
     avoidPhrases: [
-      "No hassle",
-      "Fancy features",
-      "We help companies",
-      "Disruptive",
       "Revolutionary",
       "Game-changing",
+      "Disruptive",
+      "Powerful",
+      "Supercharge",
+      "Next-generation",
     ],
   },
 

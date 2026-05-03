@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
-
-export const metadata: Metadata = { title: "Brand Voice & Messaging — Vouch Brand Hub" };
-import PlaceholderSection from "@/components/ui/PlaceholderSection";
 import PageNavigation from "@/components/ui/PageNavigation";
 import { brand } from "@/content/brand.config";
+
+export const metadata: Metadata = { title: "Brand Voice & Messaging — Vouch Brand Hub" };
 
 export default function BrandVoicePage() {
   const { voice } = brand;
@@ -32,7 +31,7 @@ export default function BrandVoicePage() {
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-3">Tone of Voice</h2>
         <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-6 max-w-2xl">
-          Every piece of Vouch communication — whether a product UI label, a social post, or a sales email — should feel confident without being arrogant, clear without being cold, warm without being casual, and purposeful without being pushy. If it doesn&apos;t feel like all four, revise.
+          Every piece of Vouch communication — from a product label to a sales email — should feel confident without being loud, human without being casual, and calm in a world that&apos;s turned up to eleven. If it doesn&apos;t feel like all three, it needs work.
         </p>
         <div className="space-y-4">
           {[
@@ -47,18 +46,8 @@ export default function BrandVoicePage() {
               ],
             },
             {
-              trait: "Clear",
-              means: "Simple language, short sentences, no jargon. If it needs decoding, it needs rewriting. Clarity is a form of respect for the reader's time.",
-              inWriting: [
-                "Use plain English — if a simpler word exists, use it",
-                "Avoid buzzwords: disruptive, revolutionary, game-changing",
-                "Break complex ideas into small, scannable pieces",
-                "One idea per sentence",
-              ],
-            },
-            {
-              trait: "Warm",
-              means: "We're speaking to people, not at them. Vouch is on the side of talent teams — we understand their world and write like it.",
+              trait: "Human",
+              means: "We're speaking to real people, not at them. Vouch understands the world of talent teams — their pressures, their wins, their day-to-day frustrations — and writes like it. We're on their side.",
               inWriting: [
                 "Use 'you' and 'your team' — not 'users' or 'clients'",
                 "Acknowledge the real experience — the stress, the friction, the wins",
@@ -67,13 +56,13 @@ export default function BrandVoicePage() {
               ],
             },
             {
-              trait: "Purposeful",
-              means: "Every word earns its place. No filler, no padding, no self-congratulation. We say what needs to be said and stop.",
+              trait: "Decaffeinated",
+              means: "Calm in a world that's permanently turned up to eleven. No hype, no urgency theatre, no breathless superlatives. If it sounds like a pitch deck or a press release, rewrite it.",
               inWriting: [
-                "Cut what doesn't add meaning",
-                "Lead with the value, not the feature",
-                "No marketing fluff — no 'exciting', 'amazing', 'powerful'",
-                "Short > long when both say the same thing",
+                "No 'revolutionary', 'game-changing', 'disrupting', 'powerful'",
+                "No exclamation marks",
+                "Shorter sentences — one idea at a time",
+                "Let the product speak — don't over-explain",
               ],
             },
           ].map(({ trait, means, inWriting }) => (
@@ -106,66 +95,28 @@ export default function BrandVoicePage() {
         </div>
       </section>
 
-      {/* Messaging Pillars — placeholder */}
-      <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Messaging Pillars</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          {[
-            {
-              title: "All in one place",
-              body: "All communication materials needed for talent marketing — emails, videos, webpages, slides, and PDFs — in one workspace.",
-            },
-            {
-              title: "On-brand, automatically",
-              body: "Automated, personalised, and on-brand copy for all assets — email, text, website, and social media.",
-            },
-            {
-              title: "Everyone connected",
-              body: "Streamlined workflows that connect all stakeholders involved in talent marketing and acquisition.",
-            },
-          ].map((pillar) => (
-            <div key={pillar.title} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
-              <h3 className="font-heading text-lg text-sea-blue-dark mb-2">{pillar.title}</h3>
-              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{pillar.body}</p>
-            </div>
-          ))}
-        </div>
-        <PlaceholderSection
-          title="Extended Messaging Framework"
-          description="Full messaging framework with proof points, objection handling, and audience-specific variants."
-          contact="ian@vouchfor.com"
-          badge="Draft"
-        />
-      </section>
-
       {/* Vocabulary */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Vocabulary & Key Phrases</h2>
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Vocabulary</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-green-500">✓</span>
-              <h3 className="font-body font-semibold text-dark-neutral text-sm uppercase tracking-widest">Use these</h3>
-            </div>
+            <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-4">Use these</p>
             <ul className="space-y-2">
               {voice.preferredPhrases.map((phrase) => (
                 <li key={phrase} className="flex items-start gap-2">
-                  <span className="text-green-400 text-xs mt-0.5">✓</span>
+                  <span className="text-sea-blue-mid/40 text-xs mt-0.5 shrink-0">—</span>
                   <span className="font-body text-sm text-dark-neutral">{phrase}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-red-400">✕</span>
-              <h3 className="font-body font-semibold text-dark-neutral text-sm uppercase tracking-widest">Avoid these</h3>
-            </div>
+            <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-4">Avoid these</p>
             <ul className="space-y-2">
               {voice.avoidPhrases.map((phrase) => (
                 <li key={phrase} className="flex items-start gap-2">
-                  <span className="text-red-400 text-xs mt-0.5">✕</span>
-                  <span className="font-body text-sm text-dark-neutral/70 line-through">{phrase}</span>
+                  <span className="text-dark-neutral/20 text-xs mt-0.5 shrink-0">—</span>
+                  <span className="font-body text-sm text-dark-neutral/40 line-through">{phrase}</span>
                 </li>
               ))}
             </ul>
@@ -173,20 +124,9 @@ export default function BrandVoicePage() {
         </div>
       </section>
 
-      {/* Writing Guidelines — placeholder */}
-      <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Writing Guidelines</h2>
-        <PlaceholderSection
-          title="Writing Guidelines"
-          description="Grammar, punctuation, capitalisation, and formatting rules for Vouch communications — the practical rules that keep writing consistent."
-          contact="ian@vouchfor.com"
-          badge="Draft"
-        />
-      </section>
-
       {/* Example Scenarios */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-3">Example Scenarios</h2>
+        <h2 className="font-heading text-2xl text-dark-neutral mb-3">In Practice</h2>
         <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-6 max-w-2xl">
           The same idea, written two ways. The off-brand version isn&apos;t always obviously wrong — that&apos;s the point.
         </p>
@@ -223,17 +163,11 @@ export default function BrandVoicePage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black/5">
                 <div className="px-6 py-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-red-400 text-xs font-body font-semibold">✕</span>
-                    <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30">Off-brand</p>
-                  </div>
+                  <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-3">Off-brand</p>
                   <p className="font-body text-sm text-dark-neutral/50 leading-relaxed italic">&ldquo;{offBrand}&rdquo;</p>
                 </div>
                 <div className="px-6 py-5 bg-sea-blue-dark/[0.02]">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-green-500 text-xs font-body font-semibold">✓</span>
-                    <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30">On-brand</p>
-                  </div>
+                  <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-3">On-brand</p>
                   <p className="font-body text-sm text-dark-neutral leading-relaxed">&ldquo;{onBrand}&rdquo;</p>
                 </div>
               </div>
@@ -243,12 +177,6 @@ export default function BrandVoicePage() {
             </div>
           ))}
         </div>
-        <PlaceholderSection
-          title="More Scenarios"
-          description="Additional scenarios: social copy, outbound email, product UI labels, and presentation headlines."
-          contact="ian@vouchfor.com"
-          badge="Draft"
-        />
       </section>
 
       <PageNavigation currentHref="/brand-voice" />
