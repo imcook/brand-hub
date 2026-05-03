@@ -467,10 +467,9 @@ export default function BrandAgent() {
           <p className="font-body text-sm text-dark-neutral/40 text-center mb-12 max-w-xs leading-relaxed">
             Your Vouch brand guide, in conversation.
           </p>
-          <form onSubmit={handleSubmit} className="w-full max-w-lg mb-10">
+          <form onSubmit={handleSubmit} className="w-full max-w-lg">
             {inputField("Ask anything about the Vouch brand...")}
           </form>
-          {chips}
         </div>
 
       ) : (
