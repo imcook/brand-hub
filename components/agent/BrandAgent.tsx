@@ -313,7 +313,6 @@ export default function BrandAgent() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const isEmpty = messages.length === 0;
-  const hasInput = input.trim().length > 0;
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -424,7 +423,7 @@ export default function BrandAgent() {
 
   return (
     <div
-      className={`flex flex-col h-full transition-colors duration-700 ${isEmpty && hasInput ? "bg-sky-blue-light" : ""}`}
+      className="flex flex-col h-full"
     >
       {isEmpty ? (
 
@@ -463,23 +462,20 @@ export default function BrandAgent() {
                 }
 
                 const isLast = i === messages.length - 1;
-                const isThinking = isLast && loading && msg.content === "";
-
-                if (isThinking) {
-                  return (
-                    <div key={i} className="flex flex-col items-center py-6">
-                      <VerticalLine />
-                      <LemniscateAnimation className="w-[140px] sm:w-[180px]" />
-                    </div>
-                  );
-                }
 
                 return (
                   <div key={i}>
                     <VerticalLine />
-                    <div className="text-dark-neutral">
-                      <MessageContent content={msg.content} />
-                    </div>
+                    {isLast && (
+                      <div className="flex justify-center mb-8">
+                        <LemniscateAnimation className="w-[120px] sm:w-[160px]" />
+                      </div>
+                    )}
+                    {msg.content && (
+                      <div className="text-dark-neutral">
+                        <MessageContent content={msg.content} />
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -490,10 +486,9 @@ export default function BrandAgent() {
           {/* Pinned bottom input */}
           <div className="border-t border-black/5 bg-sand-light/95 backdrop-blur-sm px-8 py-6">
             <div className="max-w-xl mx-auto">
-              <form onSubmit={handleSubmit} className="mb-5">
+              <form onSubmit={handleSubmit}>
                 {inputField("Ask a follow-up...")}
               </form>
-              {chips}
             </div>
           </div>
         </>
