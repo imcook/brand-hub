@@ -27,69 +27,140 @@ export default function BrandVoicePage() {
         </p>
       </div>
 
-      {/* Tone of Voice */}
+      {/* Voice vs Tone intro */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-3">Tone of Voice</h2>
-        <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-6 max-w-2xl">
-          Every piece of Vouch communication — from a product label to a sales email — should feel confident without being loud, human without being casual, and calm in a world that&apos;s turned up to eleven. If it doesn&apos;t feel like all three, it needs work.
-        </p>
-        <div className="space-y-4">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Voice and Tone</h2>
+        <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm">
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-4 max-w-2xl">
+            Think of it this way: you have the same voice all the time, but your tone changes. You speak one way catching up with a colleague, and a different way presenting to a new client. Same person — different register.
+          </p>
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed max-w-2xl">
+            The same is true for Vouch. Our voice is consistent — it&apos;s who we are. Our tone shifts depending on who we&apos;re writing for and what they&apos;re going through.
+          </p>
+        </div>
+      </section>
+
+      {/* Voice */}
+      <section className="mb-12">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Voice</h2>
+        <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm mb-4">
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-4 max-w-2xl">
+            We&apos;ve spent time with talent teams. We know what their days actually look like — the pressure, the manual work, the one-more-urgent-request. We&apos;re not here to sound impressive. We&apos;re here to be useful.
+          </p>
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-4 max-w-2xl">
+            Vouch is an Australian company, and that shapes how we write. We don&apos;t overclaim. We don&apos;t shout. There&apos;s a directness and lack of pretension that runs through everything we make — we&apos;d rather understate something great than oversell something ordinary. Confident without the bravado, warm without being gushing, and calm in an industry that&apos;s permanently at full volume.
+          </p>
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed max-w-2xl">
+            When we write copy:
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
             {
-              trait: "Confident",
-              means: "We know what we're talking about. Vouch communicates from a position of expertise, not bravado. We don't need to shout to be heard.",
-              inWriting: [
-                "Lead with statements, not questions",
-                "Avoid hedging language — 'we think', 'sort of', 'kind of'",
-                "State the benefit directly — don't bury it",
-                "Never over-promise or underdeliver in copy",
-              ],
+              label: "We're plainspoken",
+              body: "Cut the buzzwords, the superlatives, the jargon. If it sounds like a press release or a pitch deck, rewrite it. Clarity is a form of respect.",
             },
             {
-              trait: "Human",
-              means: "We're speaking to real people, not at them. Vouch understands the world of talent teams — their pressures, their wins, their day-to-day frustrations — and writes like it. We're on their side.",
-              inWriting: [
-                "Use 'you' and 'your team' — not 'users' or 'clients'",
-                "Acknowledge the real experience — the stress, the friction, the wins",
-                "Avoid cold, corporate language",
-                "It's okay to have a point of view",
-              ],
+              label: "We're direct",
+              body: "Lead with the thing that matters. Say it once, clearly. Don't hide the point inside qualifications or build-up.",
             },
             {
-              trait: "Decaffeinated",
-              means: "Calm in a world that's permanently turned up to eleven. No hype, no urgency theatre, no breathless superlatives. If it sounds like a pitch deck or a press release, rewrite it.",
-              inWriting: [
-                "No 'revolutionary', 'game-changing', 'disrupting', 'powerful'",
-                "No exclamation marks",
-                "Shorter sentences — one idea at a time",
-                "Let the product speak — don't over-explain",
-              ],
+              label: "We're human",
+              body: "Write for the person, not the persona. Acknowledge what they're actually going through — the stress, the wins, the friction.",
             },
-          ].map(({ trait, means, inWriting }) => (
-            <div key={trait} className="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden">
-              <div className="flex items-center gap-4 px-6 pt-6 pb-4 border-b border-black/5">
-                <div className="w-8 h-8 rounded-lg bg-sea-blue-mid/10 flex items-center justify-center shrink-0">
-                  <span className="font-heading text-sea-blue-mid text-sm">{trait[0]}</span>
-                </div>
-                <h3 className="font-heading text-xl text-sea-blue-dark">{trait}</h3>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black/5">
-                <div className="px-6 py-5">
-                  <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-2">What it means</p>
-                  <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{means}</p>
-                </div>
-                <div className="px-6 py-5">
-                  <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-3">How it shows up in writing</p>
-                  <ul className="space-y-2">
-                    {inWriting.map((point) => (
-                      <li key={point} className="flex items-start gap-2">
-                        <span className="text-sea-blue-mid/40 text-xs mt-0.5 shrink-0">—</span>
-                        <span className="font-body text-sm text-dark-neutral/70">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+            {
+              label: "We're understated",
+              body: "\"See how it works\" beats \"transform your entire workflow.\" Every time. The product earns the proof — we don't need to.",
+            },
+          ].map(({ label, body }) => (
+            <div key={label} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+              <h3 className="font-heading text-lg text-sea-blue-dark mb-2">{label}</h3>
+              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Tone */}
+      <section className="mb-12">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Tone</h2>
+        <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm mb-4">
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-4 max-w-2xl">
+            Vouch&apos;s tone is usually relaxed, but clarity always comes first. Before you write, consider who&apos;s reading and where they&apos;re at. A team celebrating their first campaign going live is in a different headspace than someone troubleshooting a broken integration. Both should sound like Vouch — but they should feel different.
+          </p>
+          <p className="font-body text-sm text-dark-neutral/70 leading-relaxed max-w-2xl">
+            Vouch has personality, so feel free to let it show when it&apos;s appropriate and comes naturally. But don&apos;t force it — a straight face is better than a strained joke.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            {
+              context: "Good news or celebration",
+              tone: "Warmer, a little more relaxed. It's okay to enjoy the moment with them.",
+            },
+            {
+              context: "Explaining something complex",
+              tone: "Patient, clear, precise. Take them through it properly. No shortcuts.",
+            },
+            {
+              context: "Something's gone wrong",
+              tone: "Calm and direct. No panic, no over-apologising. Fix the problem first, explain second.",
+            },
+            {
+              context: "Routine product UI",
+              tone: "Neutral, efficient, near-invisible. Don't add friction with unnecessary language.",
+            },
+          ].map(({ context, tone }) => (
+            <div key={context} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+              <p className="text-[10px] uppercase tracking-widest font-body text-dark-neutral/30 mb-2">When</p>
+              <p className="font-body font-semibold text-dark-neutral text-sm mb-3">{context}</p>
+              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{tone}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Writing Guidelines */}
+      <section className="mb-12">
+        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Writing Guidelines</h2>
+        <div className="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden divide-y divide-black/5">
+          {[
+            {
+              rule: "Australian English",
+              guidance: "We're an Australian company — use Australian spelling. Realise, colour, organisation, centre, behaviour. When in doubt, follow the Macquarie Dictionary.",
+            },
+            {
+              rule: "Active voice",
+              guidance: "The subject does the action. \"Vouch sends the brief\" — not \"The brief is sent by Vouch.\" Passive voice adds words without adding meaning.",
+            },
+            {
+              rule: "Contractions",
+              guidance: "Use them. They're warmer and more direct. \"You're\" not \"you are\". \"It's\" not \"it is\". We're talking to people, not writing a legal document.",
+            },
+            {
+              rule: "Exclamation marks",
+              guidance: "Sparingly — if you'd genuinely say it that way out loud, fine. But never in error messages or failure states. When in doubt, don't.",
+            },
+            {
+              rule: "Numbers",
+              guidance: "Spell out one through nine. Use numerals for 10 and above. If a number starts a sentence, always spell it out.",
+            },
+            {
+              rule: "Oxford comma",
+              guidance: "Always. \"Collaboration, content, and automation\" — not \"collaboration, content and automation.\" It prevents ambiguity.",
+            },
+            {
+              rule: "Em dash",
+              guidance: "Use an em dash — like this — in place of semicolons for related asides. No spaces on either side. Never use double hyphens (--) as a substitute.",
+            },
+            {
+              rule: "Positive framing",
+              guidance: "Frame things as what to do, not what not to do. \"To add a user, go to Settings\" — not \"You can't add a user unless you go to Settings.\"",
+            },
+          ].map(({ rule, guidance }) => (
+            <div key={rule} className="px-6 py-5 grid grid-cols-1 md:grid-cols-[180px_1fr] gap-1 md:gap-8 items-baseline">
+              <p className="font-body font-semibold text-dark-neutral text-sm">{rule}</p>
+              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{guidance}</p>
             </div>
           ))}
         </div>
@@ -124,7 +195,7 @@ export default function BrandVoicePage() {
         </div>
       </section>
 
-      {/* Example Scenarios */}
+      {/* In Practice */}
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-3">In Practice</h2>
         <p className="font-body text-sm text-dark-neutral/70 leading-relaxed mb-6 max-w-2xl">
