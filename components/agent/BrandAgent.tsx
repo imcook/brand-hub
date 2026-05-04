@@ -305,15 +305,15 @@ const INSPIRED_QUESTIONS = [
   "How do we describe what Vouch does in one sentence?",
   "What is our brand voice and tone?",
   "Can you write an on-brand LinkedIn post about hiring?",
-  "What are Vouch&apos;s core values?",
+  "How does Ask Vouch work?",
   "How should photography be used in Vouch designs?",
-  "What are our experience principles?",
+  "What's Vouch's design philosophy?",
   "Can you help me write an on-brand email subject line?",
   "What tone should I use for a customer-facing message?",
   "How do we talk about our customers?",
   "What visual assets do we have available?",
   "Can you show me our logo variants?",
-  "What makes Vouch different from other hiring tools?",
+  "Who is Vouch built for?",
   "How should I write a product update announcement?",
   "What icons do we have and how do I download them?",
   "Can you review this copy and make it more on-brand?",
@@ -447,6 +447,16 @@ const inputField = (placeholder: string) => (
           </p>
           <form onSubmit={handleSubmit} className="w-full max-w-lg">
             {inputField("Ask anything about the Vouch brand...")}
+            <p className="mt-3 text-xs font-body text-dark-neutral/30">
+              Stuck on what to ask?{" "}
+              <button
+                type="button"
+                onClick={getInspired}
+                className="text-dark-neutral/50 hover:text-sea-blue-mid transition-colors underline underline-offset-2"
+              >
+                Get inspired
+              </button>
+            </p>
           </form>
         </div>
 
