@@ -288,10 +288,13 @@ export default function VisualGraphicsPage() {
       </section>
 
       <section className="mb-12">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-2">
           <h2 className="font-heading text-2xl text-dark-neutral">Brand Imagery</h2>
           <BgToggle bg={imageryBg} onChange={setImageryBg} />
         </div>
+        <p className="font-body text-xs text-dark-neutral/40 mb-4">
+          Image backgrounds are transparent where not full bleed — use the toggle above to preview on dark or light.
+        </p>
         <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {IMAGERY.map((file) => (
