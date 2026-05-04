@@ -18,53 +18,61 @@ export default function BrandOverviewPage() {
       {/* About Vouch */}
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-4">About Vouch</h2>
-        <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm">
+        <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm mb-4">
           <p className="font-heading text-sea-blue-dark text-2xl leading-snug mb-4 max-w-2xl">
-            &ldquo;{brand.tagline}&rdquo;
+            Your employees have great stories. Getting them to share is the hard part. Vouch makes it effortless.
           </p>
           <p className="font-body text-dark-neutral/70 text-sm leading-relaxed max-w-2xl">
             {brand.description}
           </p>
         </div>
-      </section>
-
-      {/* Our Values */}
-      <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Our Values</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {brand.values.map((value, i) => (
-            <div key={value.name} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 rounded-lg bg-sea-blue-mid/10 flex items-center justify-center text-sea-blue-mid font-body font-semibold text-sm">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="font-heading text-xl text-dark-neutral">{value.name}</h3>
-              </div>
-              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{value.description}</p>
+          {[
+            {
+              heading: "Get employees to show up",
+              body: "The hardest part of Employer Brand content isn't creating it. It's getting employees to participate. Vouch makes it easy to ask, easy to submit, and easy to say yes.",
+            },
+            {
+              heading: "Keep content in one place",
+              body: "Instructions scattered across docs. Videos buried in folders. Follow-ups lost in Slack. Vouch centralises your content so your team isn't chasing anything.",
+            },
+            {
+              heading: "Find the clip instantly",
+              body: "You know the content is in there somewhere. Ask Vouch finds it in seconds — from inside Vouch or from Claude, ChatGPT, or Gemini. No tab switching. No manual searching.",
+            },
+            {
+              heading: "Do more without burning out",
+              body: "Employer Brand teams are expected to produce more with less. Vouch doesn't just help you keep up. It helps you get ahead.",
+            },
+          ].map(({ heading, body }) => (
+            <div key={heading} className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">
+              <h3 className="font-heading text-lg text-sea-blue-dark mb-2">{heading}</h3>
+              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Experience Principles */}
+      {/* Our Values */}
       <section className="mb-12">
-        <h2 className="font-heading text-2xl text-dark-neutral mb-6">Experience Principles</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {brand.experiencePrinciples.map((p) => (
-            <div key={p.name} className="bg-sand-light rounded-2xl border border-sea-blue-mid/10 p-6">
-              <h3 className="font-heading text-xl text-sea-blue-dark mb-2">{p.name}</h3>
-              <p className="font-body text-sm text-dark-neutral/70 leading-relaxed">{p.description}</p>
-            </div>
-          ))}
+        <h2 className="font-heading text-2xl text-dark-neutral mb-4">Our Values</h2>
+        <div className="bg-sand-light rounded-xl border border-sea-blue-mid/10 px-6 py-5">
+          <p className="font-body text-sm text-dark-neutral/40">Values in progress — check back soon.</p>
         </div>
       </section>
 
       {/* Visual Identity */}
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-6">Visual Identity</h2>
-        <div className="bg-sea-blue-dark rounded-2xl p-8 mb-4">
+        <div className="bg-sea-blue-dark rounded-2xl p-8 mb-4 space-y-3">
           <p className="font-heading text-white text-xl leading-snug max-w-2xl">
-            {visualIdentity.summary}
+            Vouch is designed to feel like the antithesis of a typical SaaS platform — deliberately decaffeinated in a world that&apos;s permanently turned up to eleven.
+          </p>
+          <p className="font-body text-white/70 text-sm leading-relaxed max-w-2xl">
+            Less digital, more editorial. Paper-like backgrounds, film grain, a serif that&apos;s confident without being formal, low contrast, generous space.
+          </p>
+          <p className="font-body text-white/70 text-sm leading-relaxed max-w-2xl">
+            Where most SaaS feels glaring and clinical, Vouch feels grounded and real. More Kindle, less iPad.
           </p>
         </div>
         <div className="bg-white rounded-2xl border border-black/5 p-6 shadow-sm">

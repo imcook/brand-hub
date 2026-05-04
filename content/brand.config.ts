@@ -1,8 +1,8 @@
 export const brand = {
   name: "Vouch",
-  tagline: "Create, collaborate, and close the right talent.",
+  tagline: "Your employees have great stories. Getting them to share is the hard part. Vouch makes it effortless.",
   description:
-    "Vouch is an AI-enabled workspace for talent teams. Vouch reduces time to hire by streamlining talent team collaboration with a flexible workspace.",
+    "The platform Employer Brand and Internal Comms teams use to collect, edit and share employee content — with AI that does the heavy lifting.",
   contact: {
     name: "Ian Cook",
     role: "Creative Lead",
@@ -222,7 +222,7 @@ export const brand = {
   },
 
   visualIdentity: {
-    summary: "Vouch is designed to feel like the antithesis of a typical SaaS platform. The visual identity is calm, clear, modern, and human — deliberately decaffeinated in a world that's permanently turned up to eleven. Less digital, more editorial. Think paper-like backgrounds, subtle film grain, a serif that's confident without being formal, low contrast, generous space. Texture and tactility are key differentiators — where most SaaS feels glaring and clinical, Vouch feels grounded and real. A workspace that feels weightless and frictionless — somewhere you actually want to be. More Kindle, less iPad. The goal is something tangible and human that happens to be software — effortless, flexible, and quietly powerful.",
+    summary: "Vouch is designed to feel like the antithesis of a typical SaaS platform — deliberately decaffeinated in a world that's permanently turned up to eleven. Less digital, more editorial. Paper-like backgrounds, film grain, a serif that's confident without being formal, low contrast, generous space. Where most SaaS feels glaring and clinical, Vouch feels grounded and real. More Kindle, less iPad.",
     keywords: ["flow", "context", "decaffeinated", "frictionless", "weightless", "space", "collaboration", "human", "effortless", "texture", "tactility", "grain", "editorial"],
   },
 
