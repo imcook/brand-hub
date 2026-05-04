@@ -19,7 +19,10 @@ export default function BrandOverviewPage() {
       <section className="mb-12">
         <h2 className="font-heading text-2xl text-dark-neutral mb-4">About Vouch</h2>
         <div className="bg-white rounded-2xl border border-black/5 p-8 shadow-sm mb-4">
-          <p className="font-heading text-sea-blue-dark text-2xl leading-snug mb-4 max-w-2xl">
+          <p className="font-heading text-sea-blue-dark text-3xl leading-tight mb-4 max-w-2xl">
+            Let your team tell your story.
+          </p>
+          <p className="font-body text-dark-neutral/70 text-sm leading-relaxed max-w-2xl mb-3">
             Your employees have great stories. Getting them to share is the hard part. Vouch makes it effortless.
           </p>
           <p className="font-body text-dark-neutral/70 text-sm leading-relaxed max-w-2xl">
