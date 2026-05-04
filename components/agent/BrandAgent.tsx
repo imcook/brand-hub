@@ -443,7 +443,7 @@ const inputField = (placeholder: string) => (
             Ask Flow anything.
           </h1>
           <p className="font-body text-sm text-dark-neutral/40 text-center mb-12 max-w-xs leading-relaxed">
-            Your Vouch brand guide, in conversation.
+            Your guide to the Vouch brand.
           </p>
           <form onSubmit={handleSubmit} className="w-full max-w-lg">
             {inputField("Ask anything about the Vouch brand...")}
